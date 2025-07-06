@@ -1,0 +1,11 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "A backend API server for Treazurex, a curated e-commerce platform. This Node.js application handles product management, user authentication, shopping cart functionality, and secure checkout. Built with Express and designed for scalability, clean architecture, and seamless frontend integration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raimi Dikamona Lassissi",
+  "license": "ISC"
+}

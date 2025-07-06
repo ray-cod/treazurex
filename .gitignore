@@ -1,0 +1,54 @@
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Build and output directories
+dist/
+dist-ssr/
+client/build/
+server/dist/
+
+# Environment files
+.env
+.env.*.local
+*.local
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Editor & IDE folders
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS/System files
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+*.local
+
+# Misc
+*.tgz
+*.zip
+*.log.*
+*.tmp
+*.bak
+*.old
