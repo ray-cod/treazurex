@@ -1,14 +1,21 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
+import AuthHeader from "../../components/headers/AuthHeader";
 
 const Authentication = () => {
   return (
     <>
-      <h1>Authentication</h1>
-      <div>
+      <AuthHeader />
+      <main className="auth-main">
+        <h1>Welcome to Treazurex</h1>
         <Outlet />
-      </div>
+        <p>Or continue with</p>
+        <div className="auth-socials">
+          <button>Continue with Google</button>
+          <button>Continue with Facebook</button>
+        </div>
+      </main>
     </>
   );
-}
+};
 
-export default Authentication
+export default Authentication;
