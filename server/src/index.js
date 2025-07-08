@@ -1,8 +1,12 @@
 const express = require('express')
 const cors = require('cors')
+const { logger } = require("./middleware/logEvents");
 const app = express()
 
 const PORT = process.env.PORT || 3500
+
+// custom middleware logger
+app.use(logger);
 
 const whiteList = ['http://localhost:3500']
 
