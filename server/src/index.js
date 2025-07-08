@@ -1,27 +1,48 @@
 const express = require('express')
 const cors = require('cors')
-const { logger } = require("./middlewares/logEvents");
+const { logger } = require("./middlewares/logEvents")
+const authRoutes = require('./routes/authRoutes')
+const cookieParser = require("cookie-parser")
 const app = express()
 
 const PORT = process.env.PORT || 3500
 
+const whiteList = ["http://localhost:5173", "http://localhost:3500"];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || whiteList.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true, 
+  optionsSuccessStatus: 200,
+};
+
 // custom middleware logger
 app.use(logger);
 
-const whiteList = ['http://localhost:3500']
-
 // Cross origin ressource sharing
-const corsOptions = {
-    origin: (origin, callback) => {
-        if(whiteList.indexOf(origin) !== -1) {
-            callback(null, true)
-        } else{
-            callback(new Error("The origin isn't allowed by CORS"))
-        }
-    },
-    optionsSuccessStatus: 200
-}
 app.use(cors(corsOptions))
+
+app.use(express.json())
+app.use(cookieParser())
+
+// to be removed root route
+app.get('/', (req, res) => {
+    res.send('Treazurex API is running');
+});
+
+// Authentication
+app.use('/api', authRoutes)
+
+// Quick error handler (To be removed)
+app.use((req, res) => {
+  res.status(404).json({ message: "Route not found" });
+});
+  
 
 
 // Running server

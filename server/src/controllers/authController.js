@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const userModel = require("../models/userModel");
 const { registerSchema, loginSchema } = require("../validators/userValidator");
-const { generateToken } = require("../config/token");
+const { generateToken, generateRefreshToken, verifyRefreshToken } = require("../config/token");
 
 const authController = {
   // Register a new user
@@ -62,7 +62,16 @@ const authController = {
       }
 
       // Create JWT Token
-      const token = generateToken(user)
+      const token = generateToken(user);
+      const refreshToken = generateRefreshToken(user);
+
+      // Set refresh token in HTTP-only cookie
+      res.cookie("refreshToken", refreshToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production", // true in production
+        sameSite: "Strict",
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      });
 
       return res.status(200).json({
         message: "Login successful",
@@ -80,6 +89,28 @@ const authController = {
       res.status(500).json({ message: "Internal server error" });
     }
   },
+
+  // Refresh token
+  refreshToken: async (req, res) => {
+    const { refreshToken } = req.cookies;
+
+    if (!refreshToken)
+      return res.status(401).json({ message: "No refresh token provided" });
+
+    try {
+      const decoded = verifyRefreshToken(refreshToken);
+      const user = await userModel.findById(decoded.id);
+
+      if (!user) return res.status(401).json({ message: "User not found" });
+
+      const newAccessToken = generateToken(user);
+      return res.json({ accessToken: newAccessToken });
+    } catch (err) {
+      return res
+        .status(403)
+        .json({ message: "Invalid or expired refresh token" });
+    }
+  },
 };
 
-module.exports = userController;
+module.exports = authController;
