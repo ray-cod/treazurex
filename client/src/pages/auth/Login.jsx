@@ -30,7 +30,7 @@ const Login = () => {
           </label>
         </div>
 
-        <Link to="forgot-password">Forgot Password?</Link>
+        <Link to="/auth/forgot-password">Forgot Password?</Link>
         <button type="submit">Login</button>
       </form>
 
