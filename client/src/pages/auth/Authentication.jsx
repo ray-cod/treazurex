@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import AuthHeader from "../../components/headers/AuthHeader";
 
 const Authentication = () => {
@@ -7,6 +7,24 @@ const Authentication = () => {
       <AuthHeader />
       <main className="auth-main">
         <h1>Welcome to Treazurex</h1>
+        <ul className="login-register-switch">
+          <li>
+            <NavLink
+              to="login"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="register"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Register
+            </NavLink>
+          </li>
+        </ul>
         <Outlet />
         <p>Or continue with</p>
         <div className="auth-socials">
