@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const { logger } = require("./middleware/logEvents");
+const { logger } = require("./middlewares/logEvents");
 const app = express()
 
 const PORT = process.env.PORT || 3500
