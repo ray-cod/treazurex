@@ -32,8 +32,6 @@ CREATE TABLE IF NOT EXISTS users (
     console.log("'users' table created successfully.");
   } catch (err) {
     console.error("Error creating 'users' table:", err.message);
-  } finally {
-    await pool.end(); // Close the DB connection
   }
 })();
 
