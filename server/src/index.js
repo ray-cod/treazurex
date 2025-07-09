@@ -1,20 +1,20 @@
 const express = require('express')
 const cors = require('cors')
-const { logger } = require("./middlewares/logEvents")
+const { logger } = require('./middlewares/logEvents')
 const authRoutes = require('./routes/authRoutes')
-const cookieParser = require("cookie-parser")
+const cookieParser = require('cookie-parser')
 const app = express()
 
 const PORT = process.env.PORT || 3500
 
-const whiteList = ["http://localhost:5173", "http://localhost:3500"];
+const whiteList = ['http://localhost:5173', 'http://localhost:3500'];
 
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || whiteList.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error("Not allowed by CORS"));
+      callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true, 
@@ -40,7 +40,7 @@ app.use('/api', authRoutes)
 
 // Quick error handler (To be removed)
 app.use((req, res) => {
-  res.status(404).json({ message: "Route not found" });
+  res.status(404).json({ message: 'Route not found' });
 });
   
 
