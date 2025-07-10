@@ -1,6 +1,5 @@
 import { action, thunk, computed } from 'easy-peasy';
 import api from '../config/axios';
-import { useNavigate } from 'react-router-dom';
 
 const authModel = {
   userFirstName: "",
@@ -66,9 +65,6 @@ const authModel = {
       actions.setUserPhone("");
       actions.setUserGender("male");
       alert("Registration Successful")
-
-      const navigate = useNavigate();
-      navigate("/auth/login");
     } catch (error) {
       console.log("Error registering new user: ", error.message);
     }
@@ -81,7 +77,6 @@ const authModel = {
       userEmail,
       userPassword,
       rememberMe,
-      accessToken,
     } = helpers.getState();
 
     try {
@@ -90,7 +85,7 @@ const authModel = {
         password: userPassword,
       });
       console.log(response.data);
-      accessToken = response.data.accessToken;
+      actions.setAccessToken(response.data.accessToken);
 
       if (rememberMe) {
         localStorage.setItem("rememberedEmail", userEmail);
@@ -98,9 +93,6 @@ const authModel = {
 
       actions.setUserEmail("");
       actions.setUserPassword("");
-
-      const navigate = useNavigate();
-      navigate("/");
     } catch (error) {
       console.log("Error logging in: ", error.message);
     }

@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuthStore from "../../hooks/useAuthStore";
-import api from "../../config/axios";
 
 const Register = () => {
   const {
@@ -18,9 +17,15 @@ const Register = () => {
     handleRegister
   } = useAuthStore();
 
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    await handleRegister(e);
+    navigate("/auth/login");
+  };
+
   return (
     <section className="register">
-      <form className="left-side" onSubmit={handleRegister}>
+      <form className="left-side" onSubmit={handleSubmit}>
         <label htmlFor="firstName">First name</label>
         <input
           type="text"
