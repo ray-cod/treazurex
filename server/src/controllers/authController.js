@@ -50,7 +50,7 @@ const authController = {
 
       const user = await userModel.findByEmail(value.email);
       if (!user) {
-        return res.status(401).json({ message: "Invalid credentials" });
+        return res.status(401).json({ message: "Invalid email" });
       }
 
       const match = await userModel.comparePassword(
@@ -58,7 +58,7 @@ const authController = {
         user.password
       );
       if (!match) {
-        return res.status(401).json({ message: "Invalid credentials" });
+        return res.status(401).json({ message: "Invalid password" });
       }
 
       // Create JWT Token
@@ -75,7 +75,7 @@ const authController = {
 
       return res.status(200).json({
         message: "Login successful",
-        token,
+        accessToken: token,
         user: {
           id: user.id,
           email: user.email,

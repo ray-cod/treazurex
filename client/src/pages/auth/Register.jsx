@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import useRegisterStore from "../../hooks/useRegisterStore";
+import useAuthStore from "../../hooks/useAuthStore";
 import api from "../../config/axios";
 
 const Register = () => {
@@ -14,26 +14,9 @@ const Register = () => {
     setUserEmail,
     userPassword,
     setUserPassword,
-    userGender,
     setUserGender,
-  } = useRegisterStore();
-
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await api.post("/api/register", {
-        firstName: userFirstName,
-        lastName: userLastName,
-        email: userEmail,
-        password: userPassword,
-        phone: userPhone,
-        gender: userGender,
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.log("Error registering new user: ", error.message);
-    }
-  };
+    handleRegister
+  } = useAuthStore();
 
   return (
     <section className="register">

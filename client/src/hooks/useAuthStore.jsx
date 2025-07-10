@@ -1,7 +1,6 @@
-// hooks/useRegisterStore.js
 import { useStoreActions, useStoreState } from "easy-peasy";
 
-const useRegisterStore = () => {
+const useAuthStore = () => {
     const {
       userFirstName,
       userLastName,
@@ -9,7 +8,9 @@ const useRegisterStore = () => {
       userEmail,
       userPassword,
       userGender,
-    } = useStoreState((state) => state.register);
+      rememberMe,
+      setRememberMe,
+    } = useStoreState((state) => state.auth);
 
     const {
       setUserFirstName,
@@ -18,7 +19,9 @@ const useRegisterStore = () => {
       setUserEmail,
       setUserPassword,
       setUserGender,
-    } = useStoreActions((actions) => actions.register);
+      handleRegister,
+      handleLogin,
+    } = useStoreActions((actions) => actions.auth);
       
 
   return {
@@ -34,7 +37,11 @@ const useRegisterStore = () => {
     setUserPassword,
     userGender,
     setUserGender,
+    rememberMe,
+    setRememberMe,
+    handleRegister,
+    handleLogin,
   };
 };
 
-export default useRegisterStore;
+export default useAuthStore;

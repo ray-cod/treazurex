@@ -1,6 +1,6 @@
 import { createStore } from 'easy-peasy';
-import registerModel from './models/registerModel';
+import authModel from './models/authModel';
 
 export default createStore({
-  register: registerModel,
+  auth: authModel,
 });
