@@ -3,18 +3,18 @@ import useAuthStore from "../../hooks/useAuthStore";
 
 const Register = () => {
   const {
-    userFirstName,
-    setUserFirstName,
-    userLastName,
-    setUserLastName,
-    userPhone,
-    setUserPhone,
-    userEmail,
-    setUserEmail,
-    userPassword,
-    setUserPassword,
-    setUserGender,
-    handleRegister
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
+    phone,
+    setPhone,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    setGender,
+    handleRegister,
   } = useAuthStore();
 
   const navigate = useNavigate();
@@ -31,9 +31,9 @@ const Register = () => {
           type="text"
           name="firstName"
           id="firstName"
-          value={userFirstName}
+          value={firstName}
           placeholder="Enter your first name"
-          onChange={(e) => setUserFirstName(e.target.value)}
+          onChange={(e) => setFirstName(e.target.value)}
           required
         />
 
@@ -42,9 +42,9 @@ const Register = () => {
           type="text"
           name="lastName"
           id="lastName"
-          value={userLastName}
+          value={lastName}
           placeholder="Enter your last name"
-          onChange={(e) => setUserLastName(e.target.value)}
+          onChange={(e) => setLastName(e.target.value)}
           required
         />
 
@@ -53,9 +53,9 @@ const Register = () => {
           type="tel"
           name="phone"
           id="phone"
-          value={userPhone}
+          value={phone}
           placeholder="Enter your phone number"
-          onChange={(e) => setUserPhone(e.target.value)}
+          onChange={(e) => setPhone(e.target.value)}
           required
         />
 
@@ -64,9 +64,9 @@ const Register = () => {
           type="email"
           name="email"
           id="email"
-          value={userEmail}
+          value={email}
           placeholder="Enter your email"
-          onChange={(e) => setUserEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
 
@@ -75,9 +75,9 @@ const Register = () => {
           type="password"
           name="password"
           id="password"
-          value={userPassword}
+          value={password}
           placeholder="Enter your password"
-          onChange={(e) => setUserPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
 
@@ -89,7 +89,7 @@ const Register = () => {
               id="male"
               value="male"
               onChange={(e) =>
-                e.target.checked && setUserGender(e.target.value)
+                e.target.checked && setGender(e.target.value)
               }
               defaultChecked
             />{" "}
@@ -102,7 +102,7 @@ const Register = () => {
               id="female"
               value="female"
               onChange={(e) =>
-                e.target.checked && setUserGender(e.target.value)
+                e.target.checked && setGender(e.target.value)
               }
             />{" "}
             Female

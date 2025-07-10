@@ -1,36 +1,36 @@
-import { action, thunk, computed } from 'easy-peasy';
-import api from '../config/axios';
+import { action, thunk, computed } from "easy-peasy";
+import api from "../config/axios";
 
 const authModel = {
-  userFirstName: "",
-  setUserFirstName: action((state, payload) => {
-    state.userFirstName = payload;
+  firstName: "",
+  setFirstName: action((state, payload) => {
+    state.firstName = payload;
   }),
-  userLastName: "",
-  setUserLastName: action((state, payload) => {
-    state.userLastName = payload;
+  lastName: "",
+  setLastName: action((state, payload) => {
+    state.lastName = payload;
   }),
-  userPhone: "",
-  setUserPhone: action((state, payload) => {
-    state.userPhone = payload;
+  phone: "",
+  setPhone: action((state, payload) => {
+    state.phone = payload;
   }),
-  userEmail: "",
-  setUserEmail: action((state, payload) => {
-    state.userEmail = payload;
+  email: "",
+  setEmail: action((state, payload) => {
+    state.email = payload;
   }),
-  userPassword: "",
-  setUserPassword: action((state, payload) => {
-    state.userPassword = payload;
+  password: "",
+  setPassword: action((state, payload) => {
+    state.password = payload;
   }),
-  userGender: "male",
-  setUserGender: action((state, payload) => {
-    state.userGender = payload;
+  gender: "male",
+  setGender: action((state, payload) => {
+    state.gender = payload;
   }),
   rememberMe: false,
   setRememberMe: action((state, payload) => {
     state.rememberMe = payload;
   }),
-  accessToken: '',
+  accessToken: "",
   setAccessToken: action((state, payload) => {
     state.accessToken = payload;
   }),
@@ -38,61 +38,51 @@ const authModel = {
   // registration function
   handleRegister: thunk(async (actions, e, helpers) => {
     e.preventDefault();
-    const {
-      userFirstName,
-      userLastName,
-      userEmail,
-      userPassword,
-      userPhone,
-      userGender,
-    } = helpers.getState();
+    const { firstName, lastName, email, password, phone, gender } =
+      helpers.getState();
 
     try {
       const response = await api.post("/api/register", {
-        firstName: userFirstName,
-        lastName: userLastName,
-        email: userEmail,
-        password: userPassword,
-        phone: userPhone,
-        gender: userGender,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+        phone: phone,
+        gender: gender,
       });
       console.log(response.data);
 
-      actions.setUserFirstName("");
-      actions.setUserLastName("");
-      actions.setUserEmail("");
-      actions.setUserPassword("");
-      actions.setUserPhone("");
-      actions.setUserGender("male");
-      alert("Registration Successful")
+      actions.setFirstName("");
+      actions.setLastName("");
+      actions.setEmail("");
+      actions.setPassword("");
+      actions.setPhone("");
+      actions.setGender("male");
+      alert("Registration Successful");
     } catch (error) {
-      console.log("Error registering new user: ", error.message);
+      console.log("Error registering new : ", error.message);
     }
   }),
 
   // login function
   handleLogin: thunk(async (actions, e, helpers) => {
     e.preventDefault();
-    const {
-      userEmail,
-      userPassword,
-      rememberMe,
-    } = helpers.getState();
+    const { email, password, rememberMe } = helpers.getState();
 
     try {
       const response = await api.post("/api/login", {
-        email: userEmail,
-        password: userPassword,
+        email: email,
+        password: password,
       });
       console.log(response.data);
       actions.setAccessToken(response.data.accessToken);
 
       if (rememberMe) {
-        localStorage.setItem("rememberedEmail", userEmail);
+        localStorage.setItem("rememberedEmail", email);
       }
 
-      actions.setUserEmail("");
-      actions.setUserPassword("");
+      actions.setEmail("");
+      actions.setPassword("");
     } catch (error) {
       console.log("Error logging in: ", error.message);
     }

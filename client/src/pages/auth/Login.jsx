@@ -4,10 +4,10 @@ import { useEffect } from 'react';
 
 const Login = () => {
   const {
-    userEmail,
-    setUserEmail,
-    userPassword,
-    setUserPassword,
+    email,
+    setEmail,
+    password,
+    setPassword,
     rememberMe,
     setRememberMe,
     handleLogin,
@@ -16,7 +16,7 @@ const Login = () => {
   useEffect(() => {
     const rememberedEmail = localStorage.getItem("rememberedEmail");
     if (rememberedEmail) {
-      setUserEmail(rememberedEmail);
+      setEmail(rememberedEmail);
       setRememberMe(true);
     }
   }, []);  
@@ -35,9 +35,9 @@ const Login = () => {
           type="email"
           name="email"
           id="email"
-          value={userEmail}
+          value={email}
           placeholder="Enter your email"
-          onChange={(e) => setUserEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
 
@@ -46,9 +46,9 @@ const Login = () => {
           type="password"
           name="password"
           id="password"
-          value={userPassword}
+          value={password}
           placeholder="Enter your password"
-          onChange={(e) => setUserPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
 
