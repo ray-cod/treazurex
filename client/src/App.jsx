@@ -14,8 +14,28 @@ import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import MainLayout from './layouts/MainLayout';
+import useAuthStore from './hooks/useAuthStore';
+import { useEffect } from 'react';
+import api from './config/axios';
 
 function App() {
+  const { setAccessToken } = useAuthStore();
+
+  useEffect(() => {
+    const fetchAccessToken = async () => {
+      try {
+        const response = await api.get("/api/refresh-token", {
+          withCredentials: true,
+        });
+        setAccessToken(response.data.accessToken);
+      } catch (err) {
+        console.log("Unable to refresh access token:", err.message);
+      }
+    };
+
+    fetchAccessToken();
+  }, []);
+
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
@@ -24,7 +44,11 @@ function App() {
         <Route path="product-detail/:id" element={<ProductDetail />} />
         <Route path="cart" element={<Cart />} />
         <Route path="checkout" element={<CheckOut />} />
-        <Route path="profile/:id" element={<Profile />} />
+        <Route path="profile/:id" element={
+          <Authentication>
+            <Profile />
+          </Authentication>
+        } />
         <Route path="about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Route>

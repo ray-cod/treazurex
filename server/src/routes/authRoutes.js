@@ -8,8 +8,11 @@ router.post("/login", authController.login);
 router.get("/refresh-token", authController.refreshToken);
 
 // Example of protected route:
-router.get("/profile", authVerification, async (req, res) => {
-  res.json({ message: `Welcome, user #${req.user.id}` });
+router.get("/check-page", authVerification, async (req, res) => {
+  res.json({
+    message: `Welcome to Treazurex`,
+    user: req.user,
+  });
 });
 
 module.exports = router;

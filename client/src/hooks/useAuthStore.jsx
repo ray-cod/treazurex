@@ -9,7 +9,7 @@ const useAuthStore = () => {
       password,
       gender,
       rememberMe,
-      setRememberMe,
+      accessToken,
     } = useStoreState((state) => state.auth);
 
     const {
@@ -19,6 +19,8 @@ const useAuthStore = () => {
       setEmail,
       setPassword,
       setGender,
+      setRememberMe,
+      setAccessToken,
       handleRegister,
       handleLogin,
     } = useStoreActions((actions) => actions.auth);
@@ -39,6 +41,8 @@ const useAuthStore = () => {
     setGender,
     rememberMe,
     setRememberMe,
+    accessToken,
+    setAccessToken,
     handleRegister,
     handleLogin,
   };

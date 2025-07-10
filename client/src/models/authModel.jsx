@@ -74,7 +74,6 @@ const authModel = {
         email: email,
         password: password,
       });
-      console.log(response.data);
       actions.setAccessToken(response.data.accessToken);
 
       if (rememberMe) {
