@@ -3,11 +3,14 @@ const cors = require('cors')
 const { logger } = require('./middlewares/logEvents')
 const authRoutes = require('./routes/authRoutes')
 const cookieParser = require('cookie-parser')
+const passport = require("passport");
+require("./config/passport");
+
 const app = express()
 
 const PORT = process.env.PORT || 3500
 
-const whiteList = ['http://localhost:5173', 'http://localhost:3500'];
+const whiteList = [process.env.CLIENT_URL, "http://localhost:3500"];
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -27,6 +30,7 @@ app.use(logger);
 // Cross origin ressource sharing
 app.use(cors(corsOptions))
 
+app.use(passport.initialize());
 app.use(express.json())
 app.use(cookieParser())
 

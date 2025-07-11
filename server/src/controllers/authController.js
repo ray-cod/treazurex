@@ -111,6 +111,23 @@ const authController = {
         .json({ message: "Invalid or expired refresh token" });
     }
   },
+
+  //Set Tokens with google 
+  googleLogin: async (req, res) => {
+    // Set tokens
+    const token = generateToken(req.user);
+    const refreshToken = generateRefreshToken(req.user);
+
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+
+    // Redirect or respond with access token
+    res.redirect(`${process.env.CLIENT_URL}/auth/callback?token=${token}`);
+  }
 };
 
 module.exports = authController;

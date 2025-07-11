@@ -4,6 +4,7 @@
   "description": "A backend API server for Treazurex, a curated e-commerce platform. This Node.js application handles product management, user authentication, shopping cart functionality, and secure checkout. Built with Express and designed for scalability, clean architecture, and seamless frontend integration.",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Raimi Dikamona Lassissi",
@@ -18,6 +19,8 @@
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.17.0",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
     "pg": "^8.16.3",
     "uuid": "^11.1.0"
   }

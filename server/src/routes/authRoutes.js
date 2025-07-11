@@ -7,6 +7,18 @@ router.post("/register", authController.register);
 router.post("/login", authController.login);
 router.get("/refresh-token", authController.refreshToken);
 
+// Google OAuth login
+router.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+router.get(
+  "/auth/google/callback",
+  passport.authenticate("google", { session: false, failureRedirect: "/auth/login" }),
+  authController.googleLogin
+);
+
 // Example of protected route:
 router.get("/check-page", authVerification, async (req, res) => {
   res.json({
