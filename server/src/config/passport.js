@@ -40,3 +40,51 @@ passport.use(
     }
   )
 );
+
+
+// Facebook OAuth strategy
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: process.env.FACEBOOK_APP_ID,
+      clientSecret: process.env.FACEBOOK_APP_SECRET,
+      callbackURL: "/api/auth/facebook/callback",
+      profileFields: ["id", "emails", "name", "gender"],
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      try {
+        console.log("Facebook profile:", profile);
+
+        // Facebook email handling
+        const email = profile.emails && profile.emails[0] ? profile.emails[0].value : null;
+
+        if (!email) {
+          return done(new Error("Facebook account has no email associated"), null);
+        }
+
+        // Find existing user by email
+        const existingUser = await userModel.findByEmail(email);
+
+        if (existingUser) {
+          return done(null, existingUser);
+        }
+
+        // Register new user from Facebook profile
+        const newUser = await userModel.createUser({
+          email: email,
+          firstName: profile.name.givenName || "Facebook",
+          lastName: profile.name.familyName || "User",
+          password: "",
+          gender: profile.gender || "other",
+          phone: "",
+          is_verified: true,
+        });
+
+        return done(null, newUser);
+      } catch (err) {
+        return done(err, null);
+      }
+    }
+  )
+);
+

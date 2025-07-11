@@ -112,7 +112,7 @@ const authController = {
     }
   },
 
-  //Set Tokens with google 
+  //Set Tokens with google
   googleLogin: async (req, res) => {
     // Set tokens
     const token = generateToken(req.user);
@@ -127,7 +127,28 @@ const authController = {
 
     // Redirect or respond with access token
     res.redirect(`${process.env.CLIENT_URL}/google-login?token=${token}`);
-  }
+  },
+
+  // Set Token with facebook
+  facebookLogin: (req, res) => {
+    // Successful login: generate tokens and redirect or send token
+    const token = generateToken(req.user);
+    const refreshToken = generateRefreshToken(req.user);
+
+    // Set refresh token cookie
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+
+    // Redirect frontend with token (adjust URL and method as you want)
+    res.redirect(
+      `${process.env.CLIENT_URL}/facebook-login?token=${token}`
+    );
+    // You can also send a JSON response instead if this is an API
+  },
 };
 
 module.exports = authController;
