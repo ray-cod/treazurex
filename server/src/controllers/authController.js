@@ -126,7 +126,7 @@ const authController = {
     });
 
     // Redirect or respond with access token
-    res.redirect(`${process.env.CLIENT_URL}/google-login?token=${token}`);
+    res.redirect(`${process.env.CLIENT_URL}/social-login?token=${token}`);
   },
 
   // Set Token with facebook
@@ -144,10 +144,7 @@ const authController = {
     });
 
     // Redirect frontend with token (adjust URL and method as you want)
-    res.redirect(
-      `${process.env.CLIENT_URL}/facebook-login?token=${token}`
-    );
-    // You can also send a JSON response instead if this is an API
+    res.redirect(`${process.env.CLIENT_URL}/social-login?token=${token}`);
   },
 };
 

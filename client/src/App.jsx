@@ -17,7 +17,7 @@ import MainLayout from './layouts/MainLayout';
 import useAuthStore from './hooks/useAuthStore';
 import { useEffect } from 'react';
 import api from './config/axios';
-import GoogleLoginVerification from './components/GoogleLoginVerification';
+import SocialLoginVerification from './components/SocialLoginVerification';
 
 function App() {
   const { setAccessToken } = useAuthStore();
@@ -65,7 +65,7 @@ function App() {
         <Route path="forgot-password" element={<ForgotPassword />} />
       </Route>
 
-      <Route path="/google-login" element={<GoogleLoginVerification />} />
+      <Route path="/social-login" element={<SocialLoginVerification />} />
     </Routes>
   );
 }

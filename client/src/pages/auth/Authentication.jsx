@@ -3,7 +3,7 @@ import AuthHeader from "../../components/headers/AuthHeader";
 import useAuthStore from "../../hooks/useAuthStore";
 
 const Authentication = () => {
-  const { handleGoogleLogin } = useAuthStore();
+  const { handleGoogleLogin, handleFacebookLogin } = useAuthStore();
 
   return (
     <>
@@ -31,10 +31,8 @@ const Authentication = () => {
         <Outlet />
         <p>Or continue with</p>
         <div className="auth-socials">
-          <button onClick={handleGoogleLogin}>
-            Continue with Google
-          </button>
-          <button>Continue with Facebook</button>
+          <button onClick={handleGoogleLogin}>Continue with Google</button>
+          <button onClick={handleFacebookLogin}>Continue with Facebook</button>
         </div>
       </main>
     </>

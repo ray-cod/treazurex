@@ -1,5 +1,6 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const FacebookStrategy = require("passport-facebook").Strategy;
 const userModel = require("../models/userModel");
 const { generateToken, generateRefreshToken } = require("./token");
 

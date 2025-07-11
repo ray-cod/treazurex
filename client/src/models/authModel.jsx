@@ -89,8 +89,11 @@ const authModel = {
 
   // Handle Google login
   handleGoogleLogin: action(() => {
-    const GOOGLE_AUTH_URL = "http://localhost:3500/api/auth/google";
-    window.location.href = GOOGLE_AUTH_URL;
+    window.location.href = "http://localhost:3500/api/auth/google";
+  }),
+
+  handleFacebookLogin: action(() => {
+    window.location.href = "http://localhost:3500/api/auth/facebook";
   }),
 };
 
