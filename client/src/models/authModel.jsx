@@ -86,6 +86,12 @@ const authModel = {
       console.log("Error logging in: ", error.message);
     }
   }),
+
+  // Handle Google login
+  handleGoogleLogin: action(() => {
+    const GOOGLE_AUTH_URL = "http://localhost:3500/api/auth/google";
+    window.location.href = GOOGLE_AUTH_URL;
+  }),
 };
 
 export default authModel;

@@ -126,7 +126,7 @@ const authController = {
     });
 
     // Redirect or respond with access token
-    res.redirect(`${process.env.CLIENT_URL}/auth/callback?token=${token}`);
+    res.redirect(`${process.env.CLIENT_URL}/google-login?token=${token}`);
   }
 };
 

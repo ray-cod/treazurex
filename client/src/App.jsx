@@ -17,6 +17,7 @@ import MainLayout from './layouts/MainLayout';
 import useAuthStore from './hooks/useAuthStore';
 import { useEffect } from 'react';
 import api from './config/axios';
+import GoogleLoginVerification from './components/GoogleLoginVerification';
 
 function App() {
   const { setAccessToken } = useAuthStore();
@@ -44,11 +45,14 @@ function App() {
         <Route path="product-detail/:id" element={<ProductDetail />} />
         <Route path="cart" element={<Cart />} />
         <Route path="checkout" element={<CheckOut />} />
-        <Route path="profile/:id" element={
-          <Authentication>
-            <Profile />
-          </Authentication>
-        } />
+        <Route
+          path="profile/:id"
+          element={
+            <Authentication>
+              <Profile />
+            </Authentication>
+          }
+        />
         <Route path="about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Route>
@@ -60,6 +64,8 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="forgot-password" element={<ForgotPassword />} />
       </Route>
+
+      <Route path="/google-login" element={<GoogleLoginVerification />} />
     </Routes>
   );
 }

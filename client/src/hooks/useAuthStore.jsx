@@ -23,6 +23,7 @@ const useAuthStore = () => {
       setAccessToken,
       handleRegister,
       handleLogin,
+      handleGoogleLogin,
     } = useStoreActions((actions) => actions.auth);
       
 
@@ -45,6 +46,7 @@ const useAuthStore = () => {
     setAccessToken,
     handleRegister,
     handleLogin,
+    handleGoogleLogin,
   };
 };
 

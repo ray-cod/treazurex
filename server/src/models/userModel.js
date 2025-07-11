@@ -10,15 +10,16 @@ const userModel = {
     password,
     phone,
     gender,
+    is_verified = false,
   }) => {
     const result = await pool.query(
       `
       INSERT INTO users 
-      (first_name, last_name, email, password, phone, gender)
-      VALUES ($1, $2, $3, $4, $5, $6)
+      (first_name, last_name, email, password, phone, gender, is_verified)
+      VALUES ($1, $2, $3, $4, $5, $6, $7)
       RETURNING id, first_name, last_name, email, role, is_verified, created_at
       `,
-      [firstName, lastName, email, password, phone, gender]
+      [firstName, lastName, email, password, phone, gender, is_verified]
     );
     return result.rows[0];
   },

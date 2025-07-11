@@ -9,12 +9,14 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "/api/auth/google/callback",
+      scope: ["profile", "email"],
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        const existingUser = await userModel.findByEmail(
-          profile.emails[0].value
-        );
+        const { email, given_name, family_name, email_verified } =
+          profile._json;
+
+        const existingUser = await userModel.findByEmail(email);
 
         if (existingUser) {
           return done(null, existingUser);
@@ -22,13 +24,13 @@ passport.use(
 
         // Register new user from Google
         const newUser = await userModel.createUser({
-          email: profile.emails[0].value,
-          first_name: profile.name.givenName,
-          last_name: profile.name.familyName,
+          email,
+          firstName: given_name || "Google",
+          lastName: family_name || "User",
           password: "",
-          gender: profile.gender || "other",
+          gender: "other",
           phone: "",
-          is_verified: true,
+          is_verified: email_verified,
         });
 
         return done(null, newUser);

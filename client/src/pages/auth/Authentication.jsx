@@ -1,7 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
 import AuthHeader from "../../components/headers/AuthHeader";
+import useAuthStore from "../../hooks/useAuthStore";
 
 const Authentication = () => {
+  const { handleGoogleLogin } = useAuthStore();
+
   return (
     <>
       <AuthHeader />
@@ -28,7 +31,9 @@ const Authentication = () => {
         <Outlet />
         <p>Or continue with</p>
         <div className="auth-socials">
-          <button>Continue with Google</button>
+          <button onClick={handleGoogleLogin}>
+            Continue with Google
+          </button>
           <button>Continue with Facebook</button>
         </div>
       </main>
