@@ -47,7 +47,7 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        {errors.email && <p style={{ color: "red" }}>Invalid email</p>}
+        {errors.email && <p className="text-red-600">Invalid email</p>}
 
         <label htmlFor="password">Password</label>
         <input
@@ -59,7 +59,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {errors.password && <p style={{ color: "red" }}>Invalid password</p>}
+        {errors.password && <p className="text-red-600">Invalid password</p>}
 
         <div className="remember-me">
           <p>Remember me</p>

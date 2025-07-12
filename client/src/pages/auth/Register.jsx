@@ -46,7 +46,7 @@ const Register = () => {
           onChange={(e) => setFirstName(e.target.value)}
           required
         />
-        {errors.firstName && <p>Too short.</p>}
+        {errors.firstName && <p className="text-red-600">Too short.</p>}
 
         <label htmlFor="lastName">Last name</label>
         <input
@@ -58,7 +58,7 @@ const Register = () => {
           onChange={(e) => setLastName(e.target.value)}
           required
         />
-        {errors.lastName && <p>Too short.</p>}
+        {errors.lastName && <p className="text-red-600">Too short.</p>}
 
         <label htmlFor="phone">Phone</label>
         <input
@@ -80,7 +80,7 @@ const Register = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        {errors.email && <p>Email already exists.</p>}
+        {errors.email && <p className="text-red-600">Email already exists.</p>}
 
         <label htmlFor="password">Password</label>
         <input
@@ -92,7 +92,9 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {errors.password && <p>Include a capital letter and number.</p>}
+        {errors.password && (
+          <p className="text-red-600">Include a capital letter and number.</p>
+        )}
 
         <div className="gender">
           <label htmlFor="male">
