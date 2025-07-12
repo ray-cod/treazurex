@@ -1,7 +1,23 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+.bg-darkblue{
+  background-color: #121417;
+}
+
+.login-register-switch{
+  border-bottom: solid 1px rgba(255, 255, 255, 0.274);
+}
+
+.active{
+  border-bottom: solid 2px white;
+  padding-bottom: 0.6rem;
+  transition: 0.5s;
+}
+
+.auth-section{
+  background-image: linear-gradient(#030712f6, #030712f6),
+  url("./assets/white-side-model.jpg");
+  background-size: cover;
+  background-position: right;
 }

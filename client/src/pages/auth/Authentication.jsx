@@ -6,36 +6,38 @@ const Authentication = () => {
   const { handleGoogleLogin, handleFacebookLogin } = useAuthStore();
 
   return (
-    <>
+    <section className="auth-section dark:bg-gray-950 min-h-screen dark:text-white">
       <AuthHeader />
-      <main className="auth-main">
-        <h1>Welcome to Treazurex</h1>
-        <ul className="login-register-switch">
-          <li>
-            <NavLink
-              to="login"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              Login
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="register"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              Register
-            </NavLink>
-          </li>
-        </ul>
-        <Outlet />
+      <main className="auth-main flex flex-col items-center">
+        <h1 className="text-3xl mb-4 mt-6">Welcome to Treazurex</h1>
+        <section className="w-full max-w-5xl px-4">
+          <ul className="login-register-switch flex gap-6 pb-2 border-b">
+            <li>
+              <NavLink
+                to="login"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                Login
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="register"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                Register
+              </NavLink>
+            </li>
+          </ul>
+          <Outlet />
+        </section>
         <p>Or continue with</p>
         <div className="auth-socials">
           <button onClick={handleGoogleLogin}>Continue with Google</button>
           <button onClick={handleFacebookLogin}>Continue with Facebook</button>
         </div>
       </main>
-    </>
+    </section>
   );
 };
 
