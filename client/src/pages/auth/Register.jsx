@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import useAuthStore from "../../hooks/useAuthStore";
+import { useState } from "react";
+import { validateSignin } from "../../config/inputValidation";
 
 const Register = () => {
   const {
@@ -17,9 +19,17 @@ const Register = () => {
     handleRegister,
   } = useAuthStore();
 
+  const [ errors, setErrors ] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    password: false
+  });
+
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
-    await handleRegister(e);
+    const errorResponse = await handleRegister(e);
+    if (!validateSignin(errorResponse, setErrors)) return;
     navigate("/auth/login");
   };
 
@@ -36,6 +46,7 @@ const Register = () => {
           onChange={(e) => setFirstName(e.target.value)}
           required
         />
+        {errors.firstName && <p>Too short.</p>}
 
         <label htmlFor="lastName">Last name</label>
         <input
@@ -47,6 +58,7 @@ const Register = () => {
           onChange={(e) => setLastName(e.target.value)}
           required
         />
+        {errors.lastName && <p>Too short.</p>}
 
         <label htmlFor="phone">Phone</label>
         <input
@@ -56,7 +68,6 @@ const Register = () => {
           value={phone}
           placeholder="Enter your phone number"
           onChange={(e) => setPhone(e.target.value)}
-          required
         />
 
         <label htmlFor="email">Email</label>
@@ -69,6 +80,7 @@ const Register = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
+        {errors.email && <p>Email already exists.</p>}
 
         <label htmlFor="password">Password</label>
         <input
@@ -80,6 +92,7 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+        {errors.password && <p>Include a capital letter and number.</p>}
 
         <div className="gender">
           <label htmlFor="male">
@@ -88,9 +101,7 @@ const Register = () => {
               name="gender"
               id="male"
               value="male"
-              onChange={(e) =>
-                e.target.checked && setGender(e.target.value)
-              }
+              onChange={(e) => e.target.checked && setGender(e.target.value)}
               defaultChecked
             />{" "}
             Male
@@ -101,9 +112,7 @@ const Register = () => {
               name="gender"
               id="female"
               value="female"
-              onChange={(e) =>
-                e.target.checked && setGender(e.target.value)
-              }
+              onChange={(e) => e.target.checked && setGender(e.target.value)}
             />{" "}
             Female
           </label>

@@ -50,7 +50,6 @@ const authModel = {
         phone: phone,
         gender: gender,
       });
-      console.log(response.data);
 
       actions.setFirstName("");
       actions.setLastName("");
@@ -61,6 +60,7 @@ const authModel = {
       alert("Registration Successful");
     } catch (error) {
       console.log("Error registering new : ", error.message);
+      return error.response?.data || { message: error.message };
     }
   }),
 
@@ -74,6 +74,7 @@ const authModel = {
         email: email,
         password: password,
       });
+
       actions.setAccessToken(response.data.accessToken);
 
       if (rememberMe) {
@@ -84,6 +85,7 @@ const authModel = {
       actions.setPassword("");
     } catch (error) {
       console.log("Error logging in: ", error.message);
+      return error.response?.data || { message: error.message};
     }
   }),
 
