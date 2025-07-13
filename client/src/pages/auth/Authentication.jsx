@@ -6,7 +6,7 @@ const Authentication = () => {
   const { handleGoogleLogin, handleFacebookLogin } = useAuthStore();
 
   return (
-    <section className="auth-section bg-cover bg-right min-h-screen dark:text-white">
+    <section className="auth-section bg-cover bg-right min-h-screen dark:text-white pb-20">
       <AuthHeader />
       <main className="auth-main flex flex-col items-center">
         <h1 className="text-3xl mb-4 mt-6">Welcome to Treazurex</h1>
@@ -31,10 +31,20 @@ const Authentication = () => {
           </ul>
           <Outlet />
         </section>
-        <p>Or continue with</p>
-        <div className="auth-socials">
-          <button onClick={handleGoogleLogin}>Continue with Google</button>
-          <button onClick={handleFacebookLogin}>Continue with Facebook</button>
+        <p className="mt-4 text-[14px] text-[#9CA8BA]">Or continue with</p>
+        <div className="auth-socials mt-4">
+          <button
+            onClick={handleGoogleLogin}
+            className="bg-[#292E38] p-1 px-2 rounded-lg mx-3 hover:cursor-pointer active:bg-gray-800"
+          >
+            Continue with Google
+          </button>
+          <button
+            onClick={handleFacebookLogin}
+            className="bg-[#292E38] p-1 px-2 rounded-lg mx-3 hover:cursor-pointer active:bg-gray-800"
+          >
+            Continue with Facebook
+          </button>
         </div>
       </main>
     </section>

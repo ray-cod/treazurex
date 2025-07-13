@@ -9,7 +9,10 @@ const AuthHeader = () => {
           <MdShoppingBasket />
           <h2>Treazurex</h2>
         </div>
-        <nav className="auth-navbar">
+        <button className="border border-[rgba(255,255,255,0.274)] rounded-lg p-1 px-2 cursor-pointer md:hidden">
+          &#9776;
+        </button>
+        <nav className="auth-navbar hidden md:block">
           <ul className="flex gap-6 justify-between items-center">
             <li>
               <Link to="/about">About</Link>

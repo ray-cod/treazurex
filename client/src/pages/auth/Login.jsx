@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useAuthStore from '../../hooks/useAuthStore';
 import { useEffect, useState } from 'react';
 import { validateLogin } from '../../config/inputValidation';
+import { Switch } from 'antd';
 
 const Login = () => {
   const {
@@ -9,7 +10,7 @@ const Login = () => {
     setEmail,
     password,
     setPassword,
-    rememberMe,
+    // rememberMe,
     setRememberMe,
     handleLogin,
   } = useAuthStore();
@@ -35,51 +36,65 @@ const Login = () => {
   };
 
   return (
-    <section className="login">
-      <form className="left-side" onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
+    <section className="login flex justify-between">
+      <form
+        className="left-side flex flex-col justify-start items-start w-[100%] max-md:items-center"
+        onSubmit={handleSubmit}
+      >
+        <label htmlFor="email" className="mt-4 mb-1 w-3/4">
+          Email
+        </label>
         <input
           type="email"
           name="email"
           id="email"
           value={email}
           placeholder="Enter your email"
+          className="bg-[#1C2126] stroke-[#3B4554] p-1 px-2 rounded-lg w-3/4"
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        {errors.email && <p className="text-red-600">Invalid email</p>}
+        {errors.email && (
+          <p className="text-red-400 text-[14px]">Invalid email...</p>
+        )}
 
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className="mt-4 mb-1 w-3/4">
+          Password
+        </label>
         <input
           type="password"
           name="password"
           id="password"
           value={password}
           placeholder="Enter your password"
+          className="bg-[#1C2126] stroke-[#3B4554] p-1 px-2 rounded-lg w-3/4"
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {errors.password && <p className="text-red-600">Invalid password</p>}
+        {errors.password && (
+          <p className="text-red-400 text-[14px]">Invalid password...</p>
+        )}
 
-        <div className="remember-me">
+        <div className="remember-me mt-4 flex justify-between w-3/4">
           <p>Remember me</p>
-          <label htmlFor="switch">
-            <input
-              type="checkbox"
-              name="switch"
-              id="switch"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)}
-            />
-            <span className="slider round"></span>
-          </label>
+          <Switch onChange={(e) => setRememberMe(e.target.value)} />
         </div>
 
-        <Link to="/auth/forgot-password">Forgot Password?</Link>
-        <button type="submit">Login</button>
+        <Link
+          to="/auth/forgot-password"
+          className="mt-4 text-[#9CA8BA] text-[14px] w-3/4"
+        >
+          Forgot Password?
+        </Link>
+        <button
+          type="submit"
+          className="mt-4 bg-blue-700 w-3/4 rounded-lg p-1 hover:cursor-pointer active:bg-blue-800"
+        >
+          Login
+        </button>
       </form>
 
-      <div className="right-side"></div>
+      <div className="right-side hidden md:block w-[100%] border"></div>
     </section>
   );
 }
