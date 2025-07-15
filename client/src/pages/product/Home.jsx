@@ -2,14 +2,9 @@ import { useEffect, useState } from "react";
 import useAuthStore from "../../hooks/useAuthStore";
 import useUserAccountStore from "../../hooks/useUserAccountStore";
 import api from "../../config/axios";
-
-import { Cloudinary } from "@cloudinary/url-gen";
-import { auto } from "@cloudinary/url-gen/actions/resize";
-import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
-import { AdvancedImage } from "@cloudinary/react";
+import Hero from "../../components/Hero";
 
 const Home = () => {
-  const cld = new Cloudinary({ cloud: { cloudName: "dicqdr7wa" } });
   const { accessToken } = useAuthStore();
   const { userFirstName, setUserFirstName } = useUserAccountStore();
   const [isValid, setIsValid] = useState(false);
@@ -38,12 +33,6 @@ const Home = () => {
     if (accessToken) fetchProtectedData();
   }, [accessToken]);
 
-  const img = cld
-    .image("cld-sample-5")
-    .format("auto")
-    .quality("auto")
-    .resize(auto().gravity(autoGravity()).width(500).height(500));
-
   return (
     <>
       {accessToken && isValid ? (
@@ -51,6 +40,7 @@ const Home = () => {
           <p>Loading your data...</p>
         ) : (
           <>
+            <Hero />
             <p>Welcome {userFirstName}</p>
             {/* <AdvancedImage cldImg={img} /> */}
           </>

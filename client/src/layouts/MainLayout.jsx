@@ -6,7 +6,7 @@ const MainLayout = () => {
   return (
     <>
       <Header />
-      <main className='min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200'>
+      <main className="min-h-screen bg-gray-50 dark:bg-[#030712] text-gray-800 dark:text-gray-200">
         <Outlet />
       </main>
       <Footer />
