@@ -9,9 +9,9 @@ const Header = () => {
   return (
     <header className="auth-header dark:text-white dark:bg-black">
       <section className="flex justify-between items-center mx-auto p-4 max-w-7xl">
-        <div id="logo" className="flex text-3xl gap-3">
+        <div id="logo" className="flex text-3xl gap-3 items-center">
           <MdShoppingBasket />
-          <h2>Treazurex</h2>
+          <h2 className="hidden sm:block">Treazurex</h2>
         </div>
         <nav className="auth-navbar hidden md:block">
           <ul className="flex gap-6 justify-between items-center">
