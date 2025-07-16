@@ -22,6 +22,42 @@ const productModel = {
     return result.rows[0];
   },
 
+  // Add multiple products at once
+  addMultipleProducts: async (products) => {
+    if (!Array.isArray(products) || products.length === 0) {
+      throw new Error("No products provided");
+    }
+
+    const values = [];
+    const placeholders = [];
+
+    products.forEach((product, i) => {
+      const index = i * 5;
+      values.push(
+        product.name,
+        product.description,
+        product.price,
+        product.stock,
+        product.image_url,
+      );
+      placeholders.push(
+        `($${index + 1}, $${index + 2}, $${index + 3}, $${index + 4}, $${
+          index + 5})`
+      );
+    });
+
+    const query = `
+      INSERT INTO products 
+        (name, description, price, stock, image_url)
+      VALUES 
+        ${placeholders.join(", ")}
+      RETURNING *
+    `;
+
+    const result = await pool.query(query, values);
+    return result.rows;
+  },
+
   // Get a product by ID
   getProductById: async (id) => {
     const result = await pool.query(`SELECT * FROM products WHERE id = $1`, [
