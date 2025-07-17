@@ -16,3 +16,28 @@
   url("./assets/white-side-model.jpg");
 }
 
+
+
+.slider-container {
+  display: flex;
+  gap: 2rem;
+  width: fit-content;
+  cursor: grab;
+}
+
+.product-slider {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.product-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-container > * {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
