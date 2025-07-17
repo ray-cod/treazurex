@@ -48,7 +48,7 @@ const Register = () => {
           id="firstName"
           value={firstName}
           placeholder="Enter your first name"
-          className="bg-[#1C2126] stroke-[#3B4554] p-1 px-2 rounded-lg w-3/4"
+          className="bg-[#1C2126] stroke-[#3B4554] py-2 px-4 rounded-lg w-3/4 text-sm"
           onChange={(e) => setFirstName(e.target.value)}
           required
         />
@@ -65,7 +65,7 @@ const Register = () => {
           id="lastName"
           value={lastName}
           placeholder="Enter your last name"
-          className="bg-[#1C2126] stroke-[#3B4554] p-1 px-2 rounded-lg w-3/4"
+          className="bg-[#1C2126] stroke-[#3B4554] py-2 px-4 rounded-lg w-3/4 text-sm"
           onChange={(e) => setLastName(e.target.value)}
           required
         />
@@ -82,7 +82,7 @@ const Register = () => {
           id="phone"
           value={phone}
           placeholder="Enter your phone number"
-          className="bg-[#1C2126] stroke-[#3B4554] p-1 px-2 rounded-lg w-3/4"
+          className="bg-[#1C2126] stroke-[#3B4554] py-2 px-4 rounded-lg w-3/4 text-sm"
           onChange={(e) => setPhone(e.target.value)}
         />
 
@@ -95,7 +95,7 @@ const Register = () => {
           id="email"
           value={email}
           placeholder="Enter your email"
-          className="bg-[#1C2126] stroke-[#3B4554] p-1 px-2 rounded-lg w-3/4"
+          className="bg-[#1C2126] stroke-[#3B4554] py-2 px-4 rounded-lg w-3/4 text-sm"
           onChange={(e) => setEmail(e.target.value)}
           required
         />
@@ -112,7 +112,7 @@ const Register = () => {
           id="password"
           value={password}
           placeholder="Enter your password"
-          className="bg-[#1C2126] stroke-[#3B4554] p-1 px-2 rounded-lg w-3/4"
+          className="bg-[#1C2126] stroke-[#3B4554] py-2 px-4 rounded-lg w-3/4 text-sm"
           onChange={(e) => setPassword(e.target.value)}
           required
         />
@@ -152,7 +152,7 @@ const Register = () => {
         </p>
         <button
           type="submit"
-          className="mt-4 bg-blue-700 w-3/4 rounded-lg p-1 hover:cursor-pointer active:bg-blue-800"
+          className="mt-4 bg-blue-700 w-3/4 rounded-lg p-2 text-sm hover:cursor-pointer active:bg-blue-800"
         >
           Register
         </button>

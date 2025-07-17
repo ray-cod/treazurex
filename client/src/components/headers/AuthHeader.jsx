@@ -24,9 +24,9 @@ const AuthHeader = () => {
               <Link to="/about">help</Link>
             </li>
             <li>
-              <button className="border p-2 hover:bg-gray-50/15 rounded-lg cursor-pointer">
+              <Link to='/' className="border py-2 px-4 hover:bg-gray-50/15 rounded-lg cursor-pointer text-sm">
                 Cancel
-              </button>
+              </Link>
             </li>
           </ul>
         </nav>

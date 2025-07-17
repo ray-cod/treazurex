@@ -50,7 +50,7 @@ const Login = () => {
           id="email"
           value={email}
           placeholder="Enter your email"
-          className="bg-[#1C2126] stroke-[#3B4554] p-1 px-2 rounded-lg w-3/4"
+          className="bg-[#1C2126] stroke-[#3B4554] py-2 px-4 rounded-lg w-3/4 text-sm"
           onChange={(e) => setEmail(e.target.value)}
           required
         />
@@ -67,7 +67,7 @@ const Login = () => {
           id="password"
           value={password}
           placeholder="Enter your password"
-          className="bg-[#1C2126] stroke-[#3B4554] p-1 px-2 rounded-lg w-3/4"
+          className="bg-[#1C2126] stroke-[#3B4554] py-2 px-4 rounded-lg w-3/4 text-sm"
           onChange={(e) => setPassword(e.target.value)}
           required
         />
@@ -88,7 +88,7 @@ const Login = () => {
         </Link>
         <button
           type="submit"
-          className="mt-4 bg-blue-700 w-3/4 rounded-lg p-1 hover:cursor-pointer active:bg-blue-800"
+          className="text-sm mt-4 bg-blue-700 w-3/4 rounded-lg p-2 hover:cursor-pointer active:bg-blue-800"
         >
           Login
         </button>
