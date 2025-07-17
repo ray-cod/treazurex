@@ -33,7 +33,9 @@ const Header = () => {
           <div id="user-choices" className="flex gap-4 cursor-pointer">
             <IoSearch className="text-lg cursor-pointer" />
             <FaRegHeart className="text-lg cursor-pointer" />
-            <FaRegUser className="text-lg cursor-pointer" />
+            <Link to="/auth/login">
+              <FaRegUser className="text-lg cursor-pointer" />
+            </Link>
             <LuShoppingCart className="text-lg cursor-pointer" />
           </div>
           <button className="border border-[rgba(255,255,255,0.274)] rounded-lg p-1 px-2 cursor-pointer md:hidden">

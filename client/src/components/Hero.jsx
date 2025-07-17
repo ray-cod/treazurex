@@ -23,7 +23,7 @@ export default function Hero() {
           Treazurex is your all-in-one shopping companion,bringing handpicked
           products
         </p>
-        <button className="bg-blue-700 text-white font-semibold px-6 py-2 rounded-md hover:bg-blue-800 transition hover:cursor-pointer">
+        <button className="bg-red-500 text-white font-semibold px-6 py-2 rounded-md hover:bg-red-600 transition hover:cursor-pointer">
           Get Started
         </button>
       </div>

@@ -10,6 +10,7 @@ const useAuthStore = () => {
       gender,
       rememberMe,
       accessToken,
+      isUserLoggedIn,
     } = useStoreState((state) => state.auth);
 
     const {
@@ -21,6 +22,7 @@ const useAuthStore = () => {
       setGender,
       setRememberMe,
       setAccessToken,
+      setIsUserLoggedIn,
       handleRegister,
       handleLogin,
       handleGoogleLogin,
@@ -45,6 +47,8 @@ const useAuthStore = () => {
     setRememberMe,
     accessToken,
     setAccessToken,
+    isUserLoggedIn,
+    setIsUserLoggedIn,
     handleRegister,
     handleLogin,
     handleGoogleLogin,

@@ -1,14 +1,17 @@
 import { Outlet } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useAuthStore from "../hooks/useAuthStore";
 import useUserAccountStore from "../hooks/useUserAccountStore";
 import Header from '../components/headers/Header';
 import Footer from '../components/Footer';
 
 const MainLayout = () => {
-  const { accessToken } = useAuthStore();
+  const { 
+    accessToken, 
+    isUserLoggedIn,
+    setIsUserLoggedIn 
+  } = useAuthStore();
   const userData = useUserAccountStore();
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   useEffect(() => {
     if (accessToken) {

@@ -34,6 +34,10 @@ const authModel = {
   setAccessToken: action((state, payload) => {
     state.accessToken = payload;
   }),
+  isUserLoggedIn: false,
+  setIsUserLoggedIn: action((state, payload) => {
+    state.isUserLoggedIn = payload;
+  }),
 
   // registration function
   handleRegister: thunk(async (actions, e, helpers) => {
