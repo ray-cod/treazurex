@@ -1,50 +1,27 @@
 import { useEffect, useState } from "react";
+import Hero from "../../components/Hero";
 import useAuthStore from "../../hooks/useAuthStore";
 import useUserAccountStore from "../../hooks/useUserAccountStore";
-import api from "../../config/axios";
-import Hero from "../../components/Hero";
 
 const Home = () => {
   const { accessToken } = useAuthStore();
-  const { userFirstName, setUserFirstName } = useUserAccountStore();
-  const [isValid, setIsValid] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const userData = useUserAccountStore();
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   useEffect(() => {
-    const fetchProtectedData = async () => {
-      try {
-        setIsLoading(true);
-        const response = await api.get("/api/check-page", {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-
-        if (response.status === 200) {
-          setUserFirstName(response.data.user.firstName);
-          setIsValid(true);
-        }
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching protected data:", error.message);
-      }
-    };
-
-    if (accessToken) fetchProtectedData();
+    if (accessToken) {
+      setIsUserLoggedIn(userData.fetchProtectedData(accessToken));
+    }
   }, [accessToken]);
 
   return (
     <>
-      {accessToken && isValid ? (
-        isLoading ? (
-          <p>Loading your data...</p>
-        ) : (
-          <>
-            <Hero />
-            <p>Welcome {userFirstName}</p>
-            {/* <AdvancedImage cldImg={img} /> */}
-          </>
-        )
+      {isUserLoggedIn ? (
+        <>
+          <Hero />
+          <p>Welcome {userData.userFirstName}</p>
+          {/* <AdvancedImage cldImg={img} /> */}
+        </>
       ) : (
         <p>You're not logged in.</p>
       )}

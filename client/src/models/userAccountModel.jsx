@@ -1,7 +1,11 @@
-import { action, thunk, computed } from 'easy-peasy';
+import { action, thunk } from 'easy-peasy';
 import api from '../config/axios';
 
 const userAccountModel = {
+  userId: "",
+  setUserId: action((state, payload) => {
+    state.userId = payload;
+  }),
   userFirstName: "",
   setUserFirstName: action((state, payload) => {
     state.userFirstName = payload;
@@ -13,6 +17,29 @@ const userAccountModel = {
   userEmail: "",
   setUserEmail: action((state, payload) => {
     state.userEmail = payload;
+  }),
+
+  // Fech protected data
+  fetchProtectedData: thunk(async (actions, accessToken) => {
+    try {
+      const response = await api.get("/api/check-page", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      if (response.status === 200) {
+        actions.setUserId(response.data.user.id)
+        actions.setUserFirstName(response.data.user.firstName);
+        actions.setUserLastName(response.data.user.lastName);
+        actions.setUserEmail(response.data.user.email);
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error("Error fetching protected data:", error.message);
+      return false;
+    }
   }),
 };
 

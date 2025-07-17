@@ -1,4 +1,4 @@
-import { action, thunk, computed } from "easy-peasy";
+import { action, thunk } from "easy-peasy";
 import api from "../config/axios";
 
 const authModel = {
@@ -42,7 +42,7 @@ const authModel = {
       helpers.getState();
 
     try {
-      const response = await api.post("/api/register", {
+      await api.post("/api/register", {
         firstName: firstName,
         lastName: lastName,
         email: email,
@@ -85,7 +85,7 @@ const authModel = {
       actions.setPassword("");
     } catch (error) {
       console.log("Error logging in: ", error.message);
-      return error.response?.data || { message: error.message};
+      return error.response?.data || { message: error.message };
     }
   }),
 
@@ -94,6 +94,7 @@ const authModel = {
     window.location.href = "http://localhost:3500/api/auth/google";
   }),
 
+  // Handle Facebook login
   handleFacebookLogin: action(() => {
     window.location.href = "http://localhost:3500/api/auth/facebook";
   }),
