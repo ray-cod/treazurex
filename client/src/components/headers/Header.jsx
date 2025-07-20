@@ -7,7 +7,7 @@ import { IoSearch } from "react-icons/io5";
 
 const Header = () => {
   return (
-    <header className="auth-header dark:text-white dark:bg-black">
+    <header className="auth-header dark:text-gray-100 dark:bg-black">
       <section className="flex justify-between items-center mx-auto p-4 max-w-7xl">
         <div id="logo" className="flex text-3xl gap-3 items-center">
           <MdShoppingBasket />

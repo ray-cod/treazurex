@@ -13,7 +13,7 @@ const Footer = () => {
   }, [isDarkMode]);
 
   return (
-    <footer className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-black text-black dark:text-white">
+    <footer className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-black text-black dark:text-gray-100">
       <div className="max-w-7xl mx-auto px-4 py-12 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         {/* Newsletter */}
         <div>
@@ -40,10 +40,18 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <nav className="space-y-2 text-sm flex flex-col">
-            <a href="#" className="hover:underline">Home</a>
-            <a href="#" className="hover:underline">About Us</a>
-            <a href="#" className="hover:underline">Products</a>
-            <a href="#" className="hover:underline">Contact</a>
+            <a href="#" className="hover:underline">
+              Home
+            </a>
+            <a href="#" className="hover:underline">
+              About Us
+            </a>
+            <a href="#" className="hover:underline">
+              Products
+            </a>
+            <a href="#" className="hover:underline">
+              Contact
+            </a>
           </nav>
         </div>
 
@@ -92,11 +100,19 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-200 dark:border-gray-700 py-6 px-4 text-sm flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
-        <p className="text-gray-600 dark:text-gray-400">© 2025 Raimi Dikamona. All rights reserved.</p>
+        <p className="text-gray-600 dark:text-gray-400">
+          © 2025 Raimi Dikamona. All rights reserved.
+        </p>
         <div className="flex space-x-4 mt-4 md:mt-0">
-          <a href="#" className="hover:underline">Privacy Policy</a>
-          <a href="#" className="hover:underline">Terms of Service</a>
-          <a href="#" className="hover:underline">Cookie Settings</a>
+          <a href="#" className="hover:underline">
+            Privacy Policy
+          </a>
+          <a href="#" className="hover:underline">
+            Terms of Service
+          </a>
+          <a href="#" className="hover:underline">
+            Cookie Settings
+          </a>
         </div>
       </div>
     </footer>
