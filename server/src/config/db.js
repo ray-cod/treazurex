@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS users (
   phone VARCHAR(20),
   gender VARCHAR(10) CHECK (gender IN ('male', 'female', 'other')),
   role VARCHAR(20) DEFAULT 'customer',
+  profile_image TEXT,
   is_verified BOOLEAN DEFAULT false,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

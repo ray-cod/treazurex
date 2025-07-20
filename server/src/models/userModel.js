@@ -10,16 +10,26 @@ const userModel = {
     password,
     phone,
     gender,
+    profileImage = null,
     is_verified = false,
   }) => {
     const result = await pool.query(
       `
       INSERT INTO users 
-      (first_name, last_name, email, password, phone, gender, is_verified)
-      VALUES ($1, $2, $3, $4, $5, $6, $7)
+      (first_name, last_name, email, password, phone, gender, profile_image, is_verified)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
       RETURNING id, first_name, last_name, email, role, is_verified, created_at
       `,
-      [firstName, lastName, email, password, phone, gender, is_verified]
+      [
+        firstName,
+        lastName,
+        email,
+        password,
+        phone,
+        gender,
+        profileImage,
+        is_verified,
+      ]
     );
     return result.rows[0];
   },
@@ -35,7 +45,7 @@ const userModel = {
   // Get user by ID
   findById: async (id) => {
     const result = await pool.query(
-      `SELECT id, first_name, last_name, email, role, phone, gender, is_verified, created_at 
+      `SELECT id, first_name, last_name, email, role, phone, gender, profile_image, is_verified, created_at 
        FROM users WHERE id = $1`,
       [id]
     );

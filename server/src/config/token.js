@@ -8,6 +8,7 @@ exports.generateToken = (user) => {
       lastName: user.last_name,
       email: user.email,
       role: user.role,
+      profileImage: user.profile_image,
     },
     process.env.JWT_SECRET,
     {

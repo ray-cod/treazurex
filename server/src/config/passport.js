@@ -14,7 +14,7 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        const { email, given_name, family_name, email_verified } =
+        const { email, given_name, family_name, picture, email_verified } =
           profile._json;
 
         const existingUser = await userModel.findByEmail(email);
@@ -31,6 +31,7 @@ passport.use(
           password: "",
           gender: "other",
           phone: "",
+          profileImage: picture || null,
           is_verified: email_verified,
         });
 
@@ -54,8 +55,6 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        console.log("Facebook profile:", profile);
-
         // Facebook email handling
         const email = profile.emails && profile.emails[0] ? profile.emails[0].value : null;
 

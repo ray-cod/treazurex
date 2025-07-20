@@ -1,22 +1,22 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from "react-router-dom";
 
-import Shop from './pages/product/Shop';
-import Home from './pages/product/Home';
-import ProductDetail from './pages/product/ProductDetail';
-import Cart from './pages/product/Cart';
-import CheckOut from './pages/product/CheckOut';
-import Authentication from './pages/auth/Authentication';
-import Profile from './pages/product/Profile';
+import Shop from "./pages/product/Shop";
+import Home from "./pages/product/Home";
+import ProductDetail from "./pages/product/ProductDetail";
+import Cart from "./pages/product/Cart";
+import CheckOut from "./pages/product/CheckOut";
+import Authentication from "./pages/auth/Authentication";
+import Profile from "./pages/product/Profile";
 import About from "./pages/product/About";
-import NotFound from './pages/product/NotFound';
-import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
+import NotFound from "./pages/product/NotFound";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 import ForgotPassword from "./pages/auth/ForgotPassword";
-import MainLayout from './layouts/MainLayout';
-import useAuthStore from './hooks/useAuthStore';
-import { useEffect } from 'react';
-import api from './config/axios';
-import SocialLoginVerification from './components/SocialLoginVerification';
+import MainLayout from "./layouts/MainLayout";
+import useAuthStore from "./hooks/useAuthStore";
+import { useEffect } from "react";
+import api from "./config/axios";
+import SocialLoginVerification from "./components/SocialLoginVerification";
 
 function App() {
   const { setAccessToken } = useAuthStore();
@@ -44,14 +44,7 @@ function App() {
         <Route path="product-detail/:id" element={<ProductDetail />} />
         <Route path="cart" element={<Cart />} />
         <Route path="checkout" element={<CheckOut />} />
-        <Route
-          path="profile/:id"
-          element={
-            <Authentication>
-              <Profile />
-            </Authentication>
-          }
-        />
+        <Route path="profile/:id" element={<Profile />} />
         <Route path="about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Route>

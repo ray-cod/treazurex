@@ -13,7 +13,7 @@ const productModel = {
     const result = await pool.query(
       `
       INSERT INTO products
-      (name, description, price, stock, image_url, is_active)
+      (name, description, price, stock_quantity, image_url, is_active)
       VALUES ($1, $2, $3, $4, $5, $6)
       RETURNING *
       `,
@@ -48,7 +48,7 @@ const productModel = {
 
     const query = `
       INSERT INTO products 
-        (name, description, price, stock, image_url)
+        (name, description, price, stock_quantity, image_url)
       VALUES 
         ${placeholders.join(", ")}
       RETURNING *

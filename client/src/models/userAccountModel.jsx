@@ -18,6 +18,10 @@ const userAccountModel = {
   setUserEmail: action((state, payload) => {
     state.userEmail = payload;
   }),
+  userPicture: "",
+  setUserPicture: action((state, payload) => {
+    state.userPicture = payload;
+  }),
 
   // Fech protected data
   fetchProtectedData: thunk(async (actions, accessToken) => {
@@ -29,10 +33,11 @@ const userAccountModel = {
       });
 
       if (response.status === 200) {
-        actions.setUserId(response.data.user.id)
+        actions.setUserId(response.data.user.id);
         actions.setUserFirstName(response.data.user.firstName);
         actions.setUserLastName(response.data.user.lastName);
         actions.setUserEmail(response.data.user.email);
+        actions.setUserPicture(response.data.user.profileImage || "");
         return true;
       }
       return false;

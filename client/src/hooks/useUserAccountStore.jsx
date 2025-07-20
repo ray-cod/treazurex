@@ -6,12 +6,14 @@ const useUserAccountStore = () => {
         userFirstName,
         userLastName,
         userEmail,
+        userPicture,
     } = useStoreState((state) => state.user)
 
     const {
       setUserFirstName,
       setUserLastName,
       setUserEmail,
+      setUserPicture,
       fetchProtectedData,
     } = useStoreActions((action) => action.user);
 
@@ -20,9 +22,11 @@ const useUserAccountStore = () => {
       userFirstName,
       userLastName,
       userEmail,
+      userPicture,
       setUserFirstName,
       setUserLastName,
       setUserEmail,
+      setUserPicture,
       fetchProtectedData,
     };
 }
