@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const { logger } = require('./middlewares/logEvents')
 const authRoutes = require('./routes/authRoutes')
+const apiRoutes = require('./routes/apiRoutes')
 const cookieParser = require('cookie-parser')
 const passport = require("passport");
 require("./config/passport");
@@ -41,6 +42,9 @@ app.get('/', (req, res) => {
 
 // Authentication
 app.use('/api', authRoutes)
+
+// API routes
+app.use('/api', apiRoutes)
 
 // Quick error handler (To be removed)
 app.use((req, res) => {
