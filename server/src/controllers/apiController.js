@@ -1,12 +1,11 @@
-import { getAllProducts } from "../models/productModel";
-
+const productModel = require('../models/productModel');
 
 const apiController = {
     // Products API requests
     // Get all active products
     getAllProducts: async (req, res) => {
         try {
-            const products = await getAllProducts();
+            const products = await productModel.getAllProducts();
             res.status(200).json(products);
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -15,4 +14,4 @@ const apiController = {
     },
 }
 
-module.export = apiController;
+module.exports = apiController;

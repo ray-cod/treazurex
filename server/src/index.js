@@ -47,11 +47,15 @@ app.use('/api', authRoutes)
 app.use('/api', apiRoutes)
 
 // Quick error handler (To be removed)
-app.use((req, res) => {
-  res.status(404).json({ message: 'Route not found' });
-});
+// app.use((req, res) => {
+//   res.status(404).json({ message: 'Route not found' });
+// });
   
-
+// Error handler for uncaught exceptions
+app.use((err, req, res, next) => {
+  console.error('Uncaught Exception:', err);
+  res.status(500).json({ message: 'Internal server error' });
+});
 
 // Running server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
