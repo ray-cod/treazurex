@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 app.use('/api', authRoutes)
 
 // API routes
-app.use('/api', apiRoutes)
+app.use('/api/store', apiRoutes)
 
 // Quick error handler (To be removed)
 // app.use((req, res) => {

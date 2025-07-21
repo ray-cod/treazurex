@@ -6,8 +6,7 @@ import { LuShoppingCart } from "react-icons/lu";
 import { IoSearch } from "react-icons/io5";
 
 const Header = ({ userData, isUserLoggedIn }) => {
-  console.log("Header userData:", userData);
-  console.log("Header isUserLoggedIn:", isUserLoggedIn);
+  
   return (
     <header className="auth-header dark:text-gray-100 dark:bg-black">
       <section className="flex justify-between items-center mx-auto p-4 max-w-7xl">
