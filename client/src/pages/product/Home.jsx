@@ -128,7 +128,7 @@ const Home = () => {
       {/* Section Three */}
       <section className="container mx-auto px-4 py-10">
         <h2 className="text-6xl max-sm:text-5xl max-md:text-[54px] font-bold pb-12">
-          <span className="text-blue-700">Explore</span> <br /> Our Collection
+          <span className="text-blue-700">Explore</span> <br /> Our Collections
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 container mx-auto">
           {collections.map((collection) => (

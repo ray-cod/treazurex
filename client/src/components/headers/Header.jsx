@@ -17,13 +17,13 @@ const Header = ({ userData, isUserLoggedIn }) => {
         <nav className="auth-navbar hidden md:block">
           <ul className="flex gap-6 justify-between items-center">
             <li>
-              <Link to="/about">Categories</Link>
+              <Link to="/shop">Categories</Link>
             </li>
             <li>
-              <Link to="/about">New</Link>
+              <Link to="/shop">New</Link>
             </li>
             <li>
-              <Link to="/about">Products</Link>
+              <Link to="/shop">Products</Link>
             </li>
             <li>
               <Link to="/about">Contacts</Link>
