@@ -3,6 +3,7 @@ import useAuthStore from '../../hooks/useAuthStore';
 import { useEffect, useState } from 'react';
 import { validateLogin } from '../../config/inputValidation';
 import { Switch } from 'antd';
+import { MdShoppingBasket } from "react-icons/md";
 
 const Login = () => {
   const {
@@ -38,7 +39,7 @@ const Login = () => {
   return (
     <section className="login flex justify-between">
       <form
-        className="left-side flex flex-col justify-start items-start w-[100%] max-md:items-center"
+        className="left-side flex flex-col justify-start items-start w-full max-md:items-center"
         onSubmit={handleSubmit}
       >
         <label htmlFor="email" className="mt-4 mb-1 w-3/4">
@@ -94,7 +95,21 @@ const Login = () => {
         </button>
       </form>
 
-      <div className="right-side hidden md:block w-[100%] border"></div>
+      <div className="hidden md:block w-full relative overflow-hidden mt-4">
+        {/* Glass card */}
+        <div className="relative z-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex flex-col justify-center items-center text-center p-10 shadow-xl w-full h-full">
+          <div className="border rounded-full p-5 mb-4 bg-linear-30 from-blue-600 to-transparent">
+            <MdShoppingBasket className="text-6xl" />
+          </div>
+          <h3 className="text-2xl font-semibold text-white mb-2">
+            Elevate Your Style
+          </h3>
+          <p className="text-gray-300 text-sm">
+            Join the best shopping experience for curated fashion and lifestyle
+            products.
+          </p>
+        </div>
+      </div>
     </section>
   );
 }
