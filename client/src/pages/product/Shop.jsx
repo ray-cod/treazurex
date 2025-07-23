@@ -43,19 +43,40 @@ const Shop = () => {
         </Link>
       </div>
       <section className="container mx-auto p-4">
-          <div id="shop-content" className="py-6 max-lg:w-full lg:px-6">
-            <h1 className="text-6xl mb-4 ">Shop</h1>
-            <p className="text-gray-700 mb-6">
-              Explore our collection of products.
-            </p>
-            <section className="border min-h-10 w-full mb-6"></section>
+        <div id="shop-content" className="py-6 max-lg:w-full lg:px-6">
+          <h1 className="text-6xl mb-4 ">Shop</h1>
+          <p className="text-gray-700 mb-6">
+            Explore our collection of products.
+          </p>
 
-            <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
-              {currentPosts.map((product) => (
-                <ShopCard key={product.id} product={product} />
-              ))}
+          {/* Filter Section */}
+          <section
+            id="filter"
+            className="min-h-10 w-full mb-6 flex justify-between items-center flex-wrap gap-4"
+          >
+            <h2 className="text-xl font-semibold">
+              Total Products ({products.length})
+            </h2>
+            <div className="flex items-center gap-4">
+              <label htmlFor="sort">Sort By:</label>
+              <select
+                id="sort"
+                className="border border-gray-300 rounded-lg p-2"
+                onChange={(e) => apiStore.sortProducts(e.target.value)}
+              >
+                <option value="default">Default</option>
+                <option value="priceLowToHigh">Price: Low to High</option>
+                <option value="priceHighToLow">Price: High to Low</option>
+              </select>
             </div>
+          </section>
+
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
+            {currentPosts.map((product) => (
+              <ShopCard key={product.id} product={product} />
+            ))}
           </div>
+        </div>
         <Pagination
           totalPosts={products.length}
           itemsPerPage={itemsPerPage}
