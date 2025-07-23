@@ -38,7 +38,7 @@ const Shop = () => {
       </div>
       <div className="md:hidden h-10 bg-gray-500 border-gray-950 border-b flex items-center justify-center gap-1">
         <p className="font-semibold">Explore The Latest Collections -</p>{" "}
-        <Link to="/" className="underline">
+        <Link to="/#collections" className="underline">
           Show
         </Link>
       </div>
