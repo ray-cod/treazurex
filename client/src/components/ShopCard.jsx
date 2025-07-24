@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 
 const ShopCard = ({ product }) => {
   return (
-    <Link to={`product-detail/${product.id}`} className="block">
+    <Link to={`/product-detail/${product.id}`} className="block">
       <article className="w-full overflow-hidden shadow-md">
         <img
           src={

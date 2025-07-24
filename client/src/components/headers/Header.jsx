@@ -10,10 +10,10 @@ const Header = ({ userData, isUserLoggedIn }) => {
   return (
     <header className="auth-header dark:text-gray-100 dark:bg-black">
       <section className="flex justify-between items-center mx-auto p-4 max-w-7xl">
-        <div id="logo" className="flex text-3xl gap-3 items-center">
+        <Link to='/' id="logo" className="flex text-3xl gap-3 items-center">
           <MdShoppingBasket />
           <h2 className="hidden sm:block">Treazurex</h2>
-        </div>
+        </Link>
         <nav className="auth-navbar hidden md:block">
           <ul className="flex gap-6 justify-between items-center">
             <li>

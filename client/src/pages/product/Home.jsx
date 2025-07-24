@@ -4,8 +4,6 @@ import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
 import CollectionCard from "../../components/CollectionCard";
 import useApiStore from "../../hooks/useApiStore";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { ChevronsRight } from "lucide-react";
 
 const Home = () => {
   const apiStore = useApiStore();
@@ -70,9 +68,6 @@ const Home = () => {
             {products.slice(0, 10).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
-            <Link className="mx-10 flex items-center" to="/shop">
-              <ChevronsRight className="w-7 h-7" />
-            </Link>
           </div>
         </div>
       </section>
