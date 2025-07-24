@@ -44,7 +44,7 @@ const Shop = () => {
       </div>
       <section className="container mx-auto p-4">
         <div id="shop-content" className="py-6 max-lg:w-full lg:px-6">
-          <h1 className="text-6xl mb-4 ">Shop</h1>
+          <h1 className="text-6xl mb-4">Shop</h1>
           <p className="text-gray-700 mb-6">
             Explore our collection of products.
           </p>

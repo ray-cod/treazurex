@@ -1,10 +1,13 @@
 import { useStoreActions } from "easy-peasy";
 
 const useApiStore = () => {
-  const { getAllProducts } = useStoreActions((actions) => actions.api);
+  const { getAllProducts, getProductById } = useStoreActions(
+    (actions) => actions.api
+  );
 
   return {
     getAllProducts,
+    getProductById,
   };
 };
 

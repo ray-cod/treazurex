@@ -13,7 +13,7 @@ const Authentication = () => {
           Welcome to Treazurex
         </h1>
         <section className="w-full max-w-5xl px-4">
-          <ul className="login-register-switch flex gap-6 pb-2 border-b border-[rgba(255,255,255,0.274)]">
+          <ul className="login-register-switch flex gap-6 pb-3 border-b border-[rgba(255,255,255,0.274)]">
             <li>
               <NavLink
                 to="login"

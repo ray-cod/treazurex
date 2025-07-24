@@ -7,8 +7,9 @@
 
 .active{
   border-bottom: solid 2px white;
-  padding-bottom: 0.6rem;
+  padding-bottom: 0.85rem;
   transition: 0.5s;
+  color: white;
 }
 
 .auth-section{

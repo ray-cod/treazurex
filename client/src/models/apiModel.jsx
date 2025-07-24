@@ -11,6 +11,16 @@ const apiModel = {
       throw error;
     }
   }),
+
+  getProductById: thunk(async (actions, productId) => {
+    try {
+      const response = await api.get(`/api/store/product/${productId}`);
+      return response.data;
+    } catch (error) {
+      console.error("Failed to fetch product by ID:", error);
+      throw error;
+    }
+  }),
 };
 
 export default apiModel;
