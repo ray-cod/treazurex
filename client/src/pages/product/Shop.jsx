@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import useApiStore from '../../hooks/useApiStore';
 import ShopCard from '../../components/ShopCard';
 import { Link } from 'react-router-dom';
@@ -44,7 +44,9 @@ const Shop = () => {
       </div>
       <section className="container mx-auto p-4">
         <div id="shop-content" className="py-6 max-lg:w-full lg:px-6">
-          <h1 className="text-6xl mb-4">Shop</h1>
+          <h2 className="text-6xl max-md:text-[54px] max-sm:text-[48px] mb-4">
+            Shop
+          </h2>
           <p className="text-gray-700 mb-6">
             Explore our collection of products.
           </p>

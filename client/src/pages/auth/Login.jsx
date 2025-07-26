@@ -89,7 +89,7 @@ const Login = () => {
         </Link>
         <button
           type="submit"
-          className="text-sm mt-4 bg-blue-700 w-3/4 rounded-lg p-2 hover:cursor-pointer active:bg-blue-800"
+          className="text-sm mt-4 bg-blue-500 w-3/4 rounded-lg p-2 hover:cursor-pointer active:bg-blue-700 hover:bg-blue-600"
         >
           Login
         </button>

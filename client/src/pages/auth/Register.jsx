@@ -154,27 +154,27 @@ const Register = () => {
         </p>
         <button
           type="submit"
-          className="mt-4 bg-blue-700 w-3/4 rounded-lg p-2 text-sm hover:cursor-pointer active:bg-blue-800"
+          className="text-sm mt-4 bg-blue-500 w-3/4 rounded-lg p-2 hover:cursor-pointer active:bg-blue-700 hover:bg-blue-600"
         >
           Register
         </button>
       </form>
 
       <div className="hidden md:block w-full relative overflow-hidden mt-4">
-              {/* Glass card */}
-              <div className="relative z-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex flex-col justify-center items-center text-center p-10 shadow-xl w-full h-full">
-                <div className="border rounded-full p-5 mb-4 bg-linear-30 from-blue-600 to-transparent">
-                  <MdShoppingBasket className="text-6xl" />
-                </div>
-                <h3 className="text-2xl font-semibold text-white mb-2">
-                  Elevate Your Style
-                </h3>
-                <p className="text-gray-300 text-sm">
-                  Join the best shopping experience for curated fashion and lifestyle
-                  products.
-                </p>
-              </div>
-            </div>
+        {/* Glass card */}
+        <div className="relative z-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex flex-col justify-center items-center text-center p-10 shadow-xl w-full h-full">
+          <div className="border rounded-full p-5 mb-4 bg-linear-30 from-blue-600 to-transparent">
+            <MdShoppingBasket className="text-6xl" />
+          </div>
+          <h3 className="text-2xl font-semibold text-white mb-2">
+            Elevate Your Style
+          </h3>
+          <p className="text-gray-300 text-sm">
+            Join the best shopping experience for curated fashion and lifestyle
+            products.
+          </p>
+        </div>
+      </div>
     </section>
   );
 };

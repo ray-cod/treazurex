@@ -16,7 +16,7 @@ const Pagination = ({
         key={i}
         onClick={() => setCurrentPage(i)}
         className={`px-4 py-2 border rounded-lg cursor-pointer ${
-          currentPage === i ? "text-blue-600 border-blue-600" : ""
+          currentPage === i ? "text-blue-500 border-blue-500" : ""
         }`}
       >
         {i}

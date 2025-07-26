@@ -10,7 +10,7 @@ const CollectionCard = ({ image_url, name }) => {
       />
       <div className="absolute inset-0 flex flex-col justify-end items-start text-white p-6">
         <h3 className="text-2xl font-bold mb-2">{name || "Collection Name"}</h3>
-        <button className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full">
+        <button className="cursor-pointer bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white px-4 py-2 rounded-full">
           Shop Now
         </button>
       </div>

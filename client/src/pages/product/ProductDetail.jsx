@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import useApiStore from '../../hooks/useApiStore'
-import { NavLink, useParams } from 'react-router-dom';
-import { FaStar } from "react-icons/fa";
+import { useParams } from 'react-router-dom';
+import ReviewRates from '../../components/ReviewRates';
+import RelatedProduct from '../../components/RelatedProduct';
 
 const ProductDetail = () => {
   const apiStore = useApiStore();
@@ -9,6 +10,7 @@ const ProductDetail = () => {
   const productId = useParams().id;
   const [isLoading, setIsLoading] = useState(true);
   const sizes = ['XS', 'S', 'M', 'L', 'XL'];
+  const [activeTab, setActiveTab] = useState("reviews");
 
   useEffect(() => {
     // Fetch product details by ID when the component mounts
@@ -29,13 +31,25 @@ const ProductDetail = () => {
   return (
     <>
       {!isLoading ? (
-        <div className="flex">
+        <div className="flex container mx-auto py-10">
           {/* Side Image */}
-          <aside className="hidden md:block w-[30%] border"></aside>
+          <aside className="max-md:hidden flex w-[30%] px-4">
+            <div className="w-1/3 h-full flex flex-col justify-between mr-1">
+              <div className="h-1/3 border"></div>
+              <div className="h-1/2 border"></div>
+            </div>
+            <div className="h-1/3 w-1/3 border mt-96 mr-1"></div>
+            <div className="w-1/3">
+              <div className='h-1/5 border mt-30'></div>
+              <div className="h-1/2 border mt-[300px]"></div>
+            </div>
+          </aside>
 
           {/* Product Details */}
-          <section className="container mx-auto px-4 py-10 md:mx-6 md:w-[70%]">
-            <h2 className="text-6xl mb-4">Product Details</h2>
+          <section className="max-md:container px-4 md:mx-6 md:w-[70%]">
+            <h2 className="text-6xl max-md:text-[54px] max-sm:text-[48px] mb-4">
+              Product Details
+            </h2>
             <p className="text-gray-700 mb-6">
               Explore the details of this product, including its features and
               specifications.
@@ -64,63 +78,14 @@ const ProductDetail = () => {
             </ul>
 
             {/* Reviews percentages */}
-            <div id="reviews-rates" className="flex items-center gap-10 mb-6">
-              <div className="flex flex-col items-center gap-2">
-                <h4 className="font-bold text-3xl">5.0</h4>
-                <div className="flex items-center gap-1">
-                  <FaStar className="text-amber-500" />
-                  <FaStar className="text-amber-500" />
-                  <FaStar className="text-amber-500" />
-                  <FaStar className="text-amber-500" />
-                  <FaStar className="text-amber-500" />
-                </div>
-                <p className="text-gray-400">124 reviews</p>
-              </div>
-              <ul className="w-full md:w-1/2">
-                <li className="flex items-center gap-4 mb-2">
-                  <span>5</span>
-                  <div className="w-full bg-blue-200 h-2.5 overflow-hidden rounded-full">
-                    <div className="bg-green-600 h-2.5 rounded-full w-[80%]"></div>
-                  </div>
-                  <span>80%</span>
-                </li>
-                <li className="flex items-center gap-4 mb-2">
-                  <span>4</span>
-                  <div className="w-full bg-blue-200 h-2.5 overflow-hidden rounded-full">
-                    <div className="bg-green-600 h-2.5 rounded-full w-[50%]"></div>
-                  </div>
-                  <span>50%</span>
-                </li>
-                <li className="flex items-center gap-4 mb-2">
-                  <span>3</span>
-                  <div className="w-full bg-blue-200 h-2.5 overflow-hidden rounded-full">
-                    <div className="bg-green-600 h-2.5 rounded-full w-[20%]"></div>
-                  </div>
-                  <span>20%</span>
-                </li>
-                <li className="flex items-center gap-4 mb-2">
-                  <span>2</span>
-                  <div className="w-full bg-blue-200 h-2.5 overflow-hidden rounded-full">
-                    <div className="bg-green-600 h-2.5 rounded-full w-[0%]"></div>
-                  </div>
-                  <span>00%</span>
-                </li>
-                <li className="flex items-center gap-4 mb-2">
-                  <span>1</span>
-                  <div className="w-full bg-blue-200 h-2.5 overflow-hidden rounded-full">
-                    <div className="bg-green-600 h-2.5 rounded-full w-[30%]"></div>
-                  </div>
-                  <span>30%</span>
-                </li>
-              </ul>
-            </div>
+            <ReviewRates />
 
             {/* Card & Wishlistn buttons */}
             <div className="mb-6">
-              <button className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-600">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-600 active:bg-blue-700">
                 Add to Cart
               </button>
-              <button className="bg-green-500 text-white px-4 py-2 rounded ml-4 cursor-pointer hover:bg-green-600">
+              <button className="bg-green-500 text-white px-4 py-2 rounded ml-4 cursor-pointer hover:bg-green-600 active:bg-green-700">
                 Add to Wishlist
               </button>
             </div>
@@ -128,22 +93,83 @@ const ProductDetail = () => {
             {/* Tabs for Reviews and F&Q */}
             <ul className="flex items-center gap-4 text-gray-500 border-b pb-3">
               <li>
-                <NavLink
-                  to=""
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                <button
+                  onClick={() => setActiveTab("reviews")}
+                  className={`cursor-pointer ${
+                    activeTab === "reviews" ? "text-white" : "text-gray-400"
+                  }`}
                 >
                   Reviews
-                </NavLink>
+                </button>
               </li>
               <li>
-                <NavLink
-                  to="x"
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                <button
+                  onClick={() => setActiveTab("f&q")}
+                  className={`cursor-pointer ${
+                    activeTab === "f&q" ? "text-white" : "text-gray-400"
+                  }`}
                 >
                   F&Q
-                </NavLink>
+                </button>
               </li>
             </ul>
+
+            {activeTab === "reviews" ? (
+              <div className="mt-6">
+                <h4 className="text-2xl mb-4">Customer Reviews</h4>
+                <p className="text-gray-500 mb-4">
+                  No reviews yet. Be the first to review this product!
+                </p>
+                <form className="flex flex-col gap-4">
+                  <textarea
+                    className="border rounded-lg p-2"
+                    placeholder="Write your review here..."
+                    rows="4"
+                  ></textarea>
+                  <button
+                    type="submit"
+                    className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-600 active:bg-blue-700"
+                  >
+                    Submit Review
+                  </button>
+                </form>
+              </div>
+            ) : (
+              <div className="mt-6">
+                <h4 className="text-2xl mb-4">Frequently Asked Questions</h4>
+                <p className="text-gray-500 mb-4">
+                  No questions yet. Be the first to ask a question about this
+                  product!
+                </p>
+                <form className="flex flex-col gap-4">
+                  <input
+                    type="text"
+                    className="border rounded-lg p-2"
+                    placeholder="Ask your question here..."
+                  />
+                  <button
+                    type="submit"
+                    className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-600 active:bg-blue-700"
+                  >
+                    Submit Question
+                  </button>
+                </form>
+              </div>
+            )}
+
+            {/* Related Products Section */}
+            <div id="related-products" className="mt-8 pt-6">
+              <h3 className="text-2xl mb-4">Related Products</h3>
+              <div className="product-slider">
+                <div className="slider-container">
+                  <RelatedProduct />
+                  <RelatedProduct />
+                  <RelatedProduct />
+                  <RelatedProduct />
+                  <RelatedProduct />
+                </div>
+              </div>
+            </div>
           </section>
         </div>
       ) : (

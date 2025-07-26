@@ -53,7 +53,7 @@ const Home = () => {
           <div>
             <h2 className="text-6xl max-sm:text-5xl max-md:text-[54px] font-bold pt-8 pb-7">
               Beyond The Edges <br /> of{" "}
-              <span className="text-blue-700">Your Needs</span>
+              <span className="text-blue-500">Your Needs</span>
             </h2>
             <p className="pb-3">Find our latest items curated only for you.</p>
           </div>
@@ -128,7 +128,7 @@ const Home = () => {
       {/* Section Three */}
       <section id="collections" className="container mx-auto px-4 py-10">
         <h2 className="text-6xl max-sm:text-5xl max-md:text-[54px] font-bold pb-12">
-          <span className="text-blue-700">Explore</span> <br /> Our Collections
+          <span className="text-blue-500">Explore</span> <br /> Our Collections
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 container mx-auto">
           {collections.map((collection) => (
