@@ -17,7 +17,7 @@ export default function Hero() {
         <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4">
           All You Need
           <br />
-          <span className="text-primary">in One Singe Place</span>
+          <span className="text-primary">in One Single Place</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-300 mb-8">
           Treazurex is your all-in-one shopping companion,bringing handpicked
