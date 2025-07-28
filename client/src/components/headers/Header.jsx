@@ -121,26 +121,26 @@ const Header = ({ userData, isUserLoggedIn }) => {
 
         <nav className="py-6">
           <ul className="flex flex-col text-lg gap-4">
-            <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
-              <Link to="/shop" onClick={() => setMobileMenu("")}>
+            <Link to="/shop" onClick={() => setMobileMenu("")}>
+              <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
                 Categories
-              </Link>
-            </li>
-            <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
-              <Link to="/shop" onClick={() => setMobileMenu("")}>
+              </li>
+            </Link>
+            <Link to="/shop" onClick={() => setMobileMenu("")}>
+              <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
                 New
-              </Link>
-            </li>
-            <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
-              <Link to="/shop" onClick={() => setMobileMenu("")}>
+              </li>
+            </Link>
+            <Link to="/shop" onClick={() => setMobileMenu("")}>
+              <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
                 Products
-              </Link>
-            </li>
-            <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
-              <Link to="/about" onClick={() => setMobileMenu("")}>
+              </li>
+            </Link>
+            <Link to="/about" onClick={() => setMobileMenu("")}>
+              <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
                 Contacts
-              </Link>
-            </li>
+              </li>
+            </Link>
           </ul>
         </nav>
 

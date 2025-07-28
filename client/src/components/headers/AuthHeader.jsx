@@ -66,21 +66,21 @@ const AuthHeader = () => {
       >
         <nav className="pb-6">
           <ul className="flex flex-col text-lg gap-4">
-            <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
-              <Link to="/about" onClick={() => setMobileMenu("")}>
+            <Link to="/about" onClick={() => setMobileMenu("")}>
+              <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
                 About
-              </Link>
-            </li>
-            <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
-              <Link to="/about" onClick={() => setMobileMenu("")}>
+              </li>
+            </Link>
+            <Link to="/about" onClick={() => setMobileMenu("")}>
+              <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
                 Help
-              </Link>
-            </li>
-            <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
-              <Link to="/about" onClick={() => setMobileMenu("")}>
+              </li>
+            </Link>
+            <Link to="/about" onClick={() => setMobileMenu("")}>
+              <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
                 Contacts
-              </Link>
-            </li>
+              </li>
+            </Link>
           </ul>
         </nav>
 
@@ -88,7 +88,9 @@ const AuthHeader = () => {
           <button
             className="mt-10 font-semibold px-4 py-2 w-full bg-blue-500 hover:cursor-pointer hover:bg-blue-600 active:bg-blue-700 rounded-lg"
             onClick={() => setMobileMenu("")}
-          >Cancel</button>
+          >
+            Cancel
+          </button>
         </Link>
       </div>
     </header>
