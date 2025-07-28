@@ -33,19 +33,10 @@ const ProductDetail = () => {
     <>
       {!isLoading ? (
         <section>
-
           <div className="flex container mx-auto py-10">
-            {/* Side Image */}
-            <aside className="max-md:hidden flex w-[30%] px-4">
-              <div className="w-1/3 h-full flex flex-col justify-between mr-1">
-                <div className="h-1/3 border"></div>
-                <div className="h-1/2 border"></div>
-              </div>
-              <div className="h-1/3 w-1/3 border mt-96 mr-1"></div>
-              <div className="w-1/3">
-                <div className='h-1/5 border mt-30'></div>
-                <div className="h-1/2 border mt-[300px]"></div>
-              </div>
+            {/* Side design */}
+            <aside className="max-md:hidden flex w-[30%] px-4 border">
+              
             </aside>
   
             {/* Product Details */}
