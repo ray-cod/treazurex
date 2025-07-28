@@ -3,6 +3,7 @@ import useApiStore from '../../hooks/useApiStore';
 import ShopCard from '../../components/ShopCard';
 import { Link } from 'react-router-dom';
 import Pagination from '../../components/Pagination';
+import FashionEvent from "../../components/FashionEvent";
 
 const Shop = () => {
   const apiStore = useApiStore();
@@ -86,6 +87,9 @@ const Shop = () => {
           setCurrentPage={setCurrentPage}
         />
       </section>
+
+      {/* Fashion show */}
+      <FashionEvent />
     </>
   );
 }

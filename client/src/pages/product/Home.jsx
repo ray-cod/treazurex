@@ -4,6 +4,7 @@ import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
 import CollectionCard from "../../components/CollectionCard";
 import useApiStore from "../../hooks/useApiStore";
 import { useEffect, useState } from "react";
+import ScrollStack from "../../components/ScrollStack";
 
 const Home = () => {
   const apiStore = useApiStore();
@@ -46,7 +47,6 @@ const Home = () => {
   return (
     <>
       <Hero />
-
       {/* Section One */}
       <section id="latest-items" className="container mx-auto px-4 py-10">
         <div className="flex items-end justify-between flex-wrap">
@@ -124,7 +124,6 @@ const Home = () => {
         </article>
         <div className="absolute bottom-0 right-0 h-20 bg-gradient-to-t from-[#030712] to-transparent w-[100%]"></div>
       </section>
-
       {/* Section Three */}
       <section id="collections" className="container mx-auto px-4 py-10">
         <h2 className="text-6xl max-sm:text-5xl max-md:text-[54px] font-bold pb-12">
@@ -141,7 +140,11 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section Four */}
+      {/* Section Four: Scroll stack */}
+      <ScrollStack />
+      
+
+      {/* Section Five: Testimonials */}
       <section className="bg-[#030712] text-gray-100 py-16 px-6 md:px-20">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
