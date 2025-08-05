@@ -5,7 +5,7 @@ const ScrollStack = () => {
     <section className="py-10 pb-20 relative bg-gray-800">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 sticky top-[40px] text-center">
-          Latest Fashion Show
+          Latest Accessories
         </h2>
         <div className="flex flex-col items-center sticky">
           <article className="bg-red-600 w-full h-[300px] sticky top-[134px] rounded-lg overflow-hidden">
