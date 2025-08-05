@@ -14,7 +14,7 @@ const ReviewRates = () => {
         </div>
         <p className="text-gray-400">124 reviews</p>
       </div>
-      <ul className="w-full md:w-1/2">
+      <ul className="w-full">
         <li className="flex items-center gap-4 mb-2">
           <span>5</span>
           <div className="w-full bg-blue-200 h-2.5 overflow-hidden rounded-full">

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ScrollStack = () => {
   return (
     <section className="py-10 pb-20 relative bg-gray-800">
@@ -7,8 +5,8 @@ const ScrollStack = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-12 sticky top-[40px] text-center">
           Latest Accessories
         </h2>
-        <div className="flex flex-col items-center sticky">
-          <article className="bg-red-600 w-full h-[300px] sticky top-[134px] rounded-lg overflow-hidden">
+        <div className="flex flex-col items-center sticky gap-2">
+          <article className="w-full h-[350px] sticky top-[134px] rounded-lg overflow-hidden">
             <img
               src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394439/ben-mathis-seibel-uBHntlP-FUk-unsplash_rnf6h3.jpg"
               alt="Luxury watch"
@@ -22,7 +20,7 @@ const ScrollStack = () => {
             </div>
           </article>
 
-          <article className="bg-red-600 w-full h-[300px] sticky top-[134px] rounded-lg overflow-hidden">
+          <article className="w-full h-[350px] sticky top-[134px] rounded-lg overflow-hidden">
             <img
               src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394446/arno-senoner-nYqRSq0gJno-unsplash_dvygyx.jpg"
               alt="Luxury bag"
@@ -36,9 +34,9 @@ const ScrollStack = () => {
             </div>
           </article>
 
-          <article className="bg-red-600 w-full h-[300px] sticky top-[134px] rounded-lg overflow-hidden">
+          <article className="w-full h-[350px] sticky top-[134px] rounded-lg overflow-hidden">
             <img
-              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394714/sheilabox-4JEcai85uqo-unsplash_1_tv39wj.jpg"
+              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754402932/prahant-designing-studio-HRQHR_lRckk-unsplash_rp09is.jpg"
               alt="Silver necklace"
               className="w-full h-full object-cover"
             />
@@ -50,7 +48,7 @@ const ScrollStack = () => {
             </div>
           </article>
 
-          <article className="bg-red-600 w-full h-[300px] sticky top-[134px] rounded-lg overflow-hidden">
+          <article className="w-full h-[350px] sticky top-[134px] rounded-lg overflow-hidden">
             <img
               src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394837/micah-sammie-chaffin-EY_rkLfraEg-unsplash_zll3yx.jpg"
               alt="Wedding ring"

@@ -2,12 +2,12 @@ import React from 'react'
 
 const FashionEvent = () => {
   return (
-    <section className="container mx-auto h-full py-16 px-4">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+    <section className="container mx-auto h-full py-16 max-sm:py-8 px-4">
+      <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-center">
         Latest Fashion Show
       </h2>
 
-      <article className="w-full h-[300px] sticky rounded-lg overflow-hidden">
+      <article className="w-full h-[350px] sticky rounded-lg overflow-hidden">
         <img
           src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394439/ben-mathis-seibel-uBHntlP-FUk-unsplash_rnf6h3.jpg"
           alt="Black Luxury bag"
