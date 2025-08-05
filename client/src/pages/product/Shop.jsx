@@ -32,7 +32,7 @@ const Shop = () => {
     <>
       <div className="mx-auto p-4 max-md:hidden">
         <img
-          src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1753272504/priscilla-du-preez-uEDvD3dmSNk-unsplash_d5roif.jpg"
+          src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754395114/alberico-bartoccini-Qr8kA7yNLrc-unsplash_bj0owb.jpg"
           alt="product banner"
           className="h-50 w-full object-cover rounded-lg shadow-lg mb-6 object-[0px_-333px]"
         />

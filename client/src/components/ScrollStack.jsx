@@ -8,18 +8,61 @@ const ScrollStack = () => {
           Latest Fashion Show
         </h2>
         <div className="flex flex-col items-center sticky">
-          <div className="bg-red-600 w-full h-[300px] sticky top-[134px] rounded-lg">
-            div 1
-          </div>
-          <div className="bg-blue-600 w-full h-[300px] sticky top-[184px] rounded-lg">
-            div 2
-          </div>
-          <div className="bg-green-600 w-full h-[300px] sticky top-[234px] rounded-lg">
-            div 3
-          </div>
-          <div className="bg-gray-600 w-full h-[300px] sticky top-[284px] rounded-lg">
-            div 4
-          </div>
+          <article className="bg-red-600 w-full h-[300px] sticky top-[134px] rounded-lg overflow-hidden">
+            <img
+              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394439/ben-mathis-seibel-uBHntlP-FUk-unsplash_rnf6h3.jpg"
+              alt="Luxury watch"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end items-start text-white p-6">
+              <h3 className="text-2xl font-bold mb-2">Watches</h3>
+              <button className="cursor-pointer bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white px-4 py-2 rounded-full">
+                Shop Now
+              </button>
+            </div>
+          </article>
+
+          <article className="bg-red-600 w-full h-[300px] sticky top-[134px] rounded-lg overflow-hidden">
+            <img
+              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394446/arno-senoner-nYqRSq0gJno-unsplash_dvygyx.jpg"
+              alt="Luxury bag"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end items-start text-white p-6">
+              <h3 className="text-2xl font-bold mb-2">Hand Bags</h3>
+              <button className="cursor-pointer bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white px-4 py-2 rounded-full">
+                Shop Now
+              </button>
+            </div>
+          </article>
+
+          <article className="bg-red-600 w-full h-[300px] sticky top-[134px] rounded-lg overflow-hidden">
+            <img
+              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394714/sheilabox-4JEcai85uqo-unsplash_1_tv39wj.jpg"
+              alt="Silver necklace"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end items-start text-white p-6">
+              <h3 className="text-2xl font-bold mb-2">Jewelleries</h3>
+              <button className="cursor-pointer bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white px-4 py-2 rounded-full">
+                Shop Now
+              </button>
+            </div>
+          </article>
+
+          <article className="bg-red-600 w-full h-[300px] sticky top-[134px] rounded-lg overflow-hidden">
+            <img
+              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394837/micah-sammie-chaffin-EY_rkLfraEg-unsplash_zll3yx.jpg"
+              alt="Wedding ring"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end items-start text-white p-6">
+              <h3 className="text-2xl font-bold mb-2">A+ Rings</h3>
+              <button className="cursor-pointer bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white px-4 py-2 rounded-full">
+                Shop Now
+              </button>
+            </div>
+          </article>
         </div>
       </div>
       <div className="absolute bottom-0 right-0 h-20 bg-gradient-to-t from-[#030712] to-transparent w-[100%]"></div>
