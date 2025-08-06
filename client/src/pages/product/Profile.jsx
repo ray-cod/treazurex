@@ -10,7 +10,7 @@ const Profile = () => {
   return (
     <section className="min-h-screen md:container mx-auto px-4 py-10">
       {/* Profile Header */}
-      <div className="bg-gray-900 p-8 rounded-xl shadow border-gray-800 flex justify-between items-start max-md:flex-col gap-4">
+      <div className="bg-gray-200 dark:bg-gray-900 p-8 rounded-xl shadow border-gray-800 flex justify-between items-start max-md:flex-col gap-4">
         <div className="flex gap-4 items-center max-md:flex-col max-md:items-start">
           <img
             src={
@@ -25,10 +25,15 @@ const Profile = () => {
               {userData.userFirstName}{" "}
               <span className="text-yellow-500">{userData.userLastName}</span>
             </h2>
-            <p className="text-gray-500 text-sm">User ID: {userData.userId}</p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
+              User ID: {userData.userId}
+            </p>
 
             <div className="flex gap-4 flex-wrap text-sm">
-              <div id="email" className="text-gray-400 flex gap-2 items-center">
+              <div
+                id="email"
+                className="text-gray-600 dark:text-gray-400 flex gap-2 items-center"
+              >
                 <Mail className="w-4 h-4" />
                 <p
                   className="underline cursor-pointer"
@@ -40,7 +45,7 @@ const Profile = () => {
 
               <div
                 id="address"
-                className="flex items-center gap-2 text-gray-400"
+                className="flex items-center gap-2 text-gray-600 dark:text-gray-400"
               >
                 <MapPin className="w-4 h-4" />
                 <address>No Address</address>
@@ -70,7 +75,7 @@ const Profile = () => {
 
       <div className="flex py-6 gap-6">
         {/* Sidebar */}
-        <nav className="w-64 bg-gray-900 rounded-xl p-4 shadow border-gray-800 space-y-4 max-md:hidden">
+        <nav className="w-64 bg-gray-200 dark:bg-gray-900 rounded-xl p-4 shadow border-gray-800 space-y-4 max-md:hidden">
           <div className="space-y-2">
             <NavItem active label="Profile Overview" />
             <NavItem label="Orders" />
@@ -86,7 +91,7 @@ const Profile = () => {
         {/* Main Content */}
         <section className="flex-1 space-y-6">
           {/* Mobile menu */}
-          <div className="flex justify-between p-2 border border-gray-500 rounded-lg hover:bg-gray-900 cursor-pointer md:hidden">
+          <div className="flex justify-between p-2 border border-gray-500 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-900 cursor-pointer md:hidden">
             <h3>Menu</h3>
             <Menu />
           </div>
@@ -126,10 +131,12 @@ const Profile = () => {
       </div>
 
       {/* Recently Viewed */}
-      <div className="bg-gray-900 p-6 rounded-xl shadow border-gray-800">
+      <div className="bg-gray-200 dark:bg-gray-900 p-6 rounded-xl shadow border-gray-800">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold">Recently Viewed</h3>
-          <button className="text-sm text-gray-500 underline">View All</button>
+          <button className="text-sm text-gray-600 dark:text-gray-400 underline">
+            View All
+          </button>
         </div>
 
         <div className="product-slider">
@@ -150,7 +157,9 @@ const Profile = () => {
 const NavItem = ({ label, active }) => (
   <div
     className={`px-3 py-2 rounded-lg text-sm cursor-pointer ${
-      active ? "bg-gray-700 font-semibold" : "hover:bg-gray-700"
+      active
+        ? "bg-gray-400 dark:bg-gray-700 font-semibold"
+        : "hover:bg-gray-400 dark:hover:bg-gray-700"
     }`}
   >
     {label}
@@ -158,11 +167,15 @@ const NavItem = ({ label, active }) => (
 );
 
 const SummaryCard = ({ title, value, note, icon, iconColor }) => (
-  <div className="bg-gray-900 p-6 rounded-xl shadow border-gray-800 max-md:flex max-md:flex-col max-md:items-center max-md:justify-center transition-transform duration-200 ease-in-out hover:-translate-y-0.5">
+  <div className="bg-gray-200 dark:bg-gray-900 p-6 rounded-xl shadow border-gray-800 max-md:flex max-md:flex-col max-md:items-center max-md:justify-center transition-transform duration-200 ease-in-out hover:-translate-y-0.5">
     {icon && <div className={`text-2xl mb-1 ${iconColor}`}>{icon}</div>}
     <div className="text-lg font-semibold">{value}</div>
-    <div className="text-xs text-gray-500">{title}</div>
-    {note && <div className="text-[11px] text-gray-400 mt-1">{note}</div>}
+    <div className="text-xs text-gray-600 dark:text-gray-400">{title}</div>
+    {note && (
+      <div className="text-[11px] text-gray-600 dark:text-gray-400 mt-1">
+        {note}
+      </div>
+    )}
   </div>
 );
 
