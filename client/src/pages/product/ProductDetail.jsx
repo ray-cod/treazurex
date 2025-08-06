@@ -48,7 +48,9 @@ const ProductDetail = () => {
 
             {/* Product Details */}
             <section className="max-md:container px-4 md:mx-6 md:w-[50%]">
-              <p className="text-gray-400 mb-2 text-xl max-sm:text-lg">By Treazurex</p>
+              <p className="text-gray-600 dark:text-gray-400 mb-2 text-xl max-sm:text-lg">
+                By Treazurex
+              </p>
               <h3 className="font-semibold text-4xl mb-2 max-sm:text-2xl max-md:text-3xl">
                 {product.name}
               </h3>
@@ -57,7 +59,9 @@ const ProductDetail = () => {
                 just function or style. It’s an experience designed to match the
                 confidence and individuality of those who choose to stand apart.
               </p>
-              <p className="mb-4 font-semibold text-2xl max-sm:text-xl">R{product.price}</p>
+              <p className="mb-4 font-semibold text-2xl max-sm:text-xl">
+                R{product.price}
+              </p>
               <ul className="flex items-center gap-2 mb-6">
                 {sizes.map((size, index) => (
                   <li
@@ -83,15 +87,16 @@ const ProductDetail = () => {
               </div>
             </section>
           </div>
+
           {/* Tabs for Reviews and F&Q */}
-          <ul className="flex items-center gap-4 text-gray-500 bg-gray-900 p-2 rounded-lg overflow-hidden">
+          <ul className="flex items-center gap-4 bg-gray-200 dark:bg-gray-900 p-2 rounded-lg overflow-hidden">
             <li>
               <button
                 onClick={() => setActiveTab("description")}
                 className={`cursor-pointer py-2 w-50 rounded-lg max-md:w-40 max-sm:w-30 ${
                   activeTab === "description"
-                    ? "text-white bg-gray-950"
-                    : "text-gray-400"
+                    ? "text-black dark:text-white bg-gray-100 dark:bg-gray-950"
+                    : "text-gray-600 dark:text-gray-400"
                 }`}
               >
                 Description
@@ -102,8 +107,8 @@ const ProductDetail = () => {
                 onClick={() => setActiveTab("reviews")}
                 className={`cursor-pointer py-2 w-50 rounded-lg ${
                   activeTab === "reviews"
-                    ? "text-white bg-gray-950"
-                    : "text-gray-400"
+                    ? "text-black dark:text-white bg-gray-100 dark:bg-gray-950"
+                    : "text-gray-600 dark:text-gray-400"
                 }`}
               >
                 Reviews
@@ -114,8 +119,8 @@ const ProductDetail = () => {
                 onClick={() => setActiveTab("f&q")}
                 className={`cursor-pointer py-2 w-50 rounded-lg ${
                   activeTab === "f&q"
-                    ? "text-white bg-gray-950"
-                    : "text-gray-400"
+                    ? "text-black dark:text-white bg-gray-100 dark:bg-gray-950"
+                    : "text-gray-600 dark:text-gray-400"
                 }`}
               >
                 Questions
@@ -126,7 +131,7 @@ const ProductDetail = () => {
           {activeTab === "reviews" ? (
             <div className="mt-6">
               <h4 className="text-2xl mb-4">Customer Reviews</h4>
-              <p className="text-gray-500 mb-4">
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
                 No reviews yet. Be the first to review this product!
               </p>
               <form className="flex flex-col gap-4">
@@ -146,12 +151,14 @@ const ProductDetail = () => {
           ) : activeTab === "description" ? (
             <div className="mt-6">
               <h4 className="text-2xl mb-4">Product Description</h4>
-              <p className="text-gray-500 mb-4">{product.description}</p>
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
+                {product.description}
+              </p>
             </div>
           ) : (
             <div className="mt-6">
               <h4 className="text-2xl mb-4">Frequently Asked Questions</h4>
-              <p className="text-gray-500 mb-4">
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
                 No questions yet. Be the first to ask a question about this
                 product!
               </p>

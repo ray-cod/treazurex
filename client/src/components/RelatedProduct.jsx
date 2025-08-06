@@ -11,7 +11,7 @@ const RelatedProduct = () => {
       <h4 className="text-xl max-sm:text-[16px] max-md:text-[18px] font-medium">
         Related Product Name
       </h4>
-      <p className="text-gray-500">R299.99</p>
+      <p className="text-gray-600 dark:text-gray-400">R299.99</p>
     </article>
   );
 }
