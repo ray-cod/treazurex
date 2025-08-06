@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
             {product.name || "Product Name"}
           </h3>
           <hr className="w-12 pb-2" />
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
             {product.description ||
               "This is a sample product description that provides details about the product."}
           </p>

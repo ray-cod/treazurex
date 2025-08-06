@@ -37,7 +37,7 @@ const Shop = () => {
           className="h-50 w-full object-cover rounded-lg shadow-lg mb-6 object-[0px_-333px]"
         />
       </div>
-      <div className="md:hidden h-10 bg-gray-500 border-gray-950 border-b flex items-center justify-center gap-1">
+      <div className="md:hidden h-10 bg-gray-200 dark:bg-gray-500 border-gray-800 border-b flex items-center justify-center gap-1">
         <p className="font-semibold">Explore The Latest Collections -</p>{" "}
         <Link to="/#collections" className="underline">
           Show
@@ -48,7 +48,7 @@ const Shop = () => {
           <h2 className="text-6xl max-md:text-[54px] max-sm:text-[48px] mb-4">
             Shop
           </h2>
-          <p className="text-gray-700 mb-6">
+          <p className="mb-6 text-gray-600 dark:text-gray-400">
             Explore our collection of products.
           </p>
 
