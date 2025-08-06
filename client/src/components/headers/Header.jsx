@@ -30,10 +30,10 @@ const Header = ({ userData, isUserLoggedIn }) => {
               <Link to="/shop">Categories</Link>
             </li>
             <li>
-              <Link to="/shop">New</Link>
+              <Link to="/shop">Products</Link>
             </li>
             <li>
-              <Link to="/shop">Products</Link>
+              <Link to={`/profile/${userData.userId}`}>Profile</Link>
             </li>
             <li>
               <Link to="/about">Contacts</Link>
@@ -128,12 +128,15 @@ const Header = ({ userData, isUserLoggedIn }) => {
             </Link>
             <Link to="/shop" onClick={() => setMobileMenu("")}>
               <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
-                New
+                Products
               </li>
             </Link>
-            <Link to="/shop" onClick={() => setMobileMenu("")}>
+            <Link
+              to={`/profile/${userData.userId}`}
+              onClick={() => setMobileMenu("")}
+            >
               <li className="w-full py-2 px-4 hover:bg-blue-500 rounded-lg">
-                Products
+                Profile
               </li>
             </Link>
             <Link to="/about" onClick={() => setMobileMenu("")}>

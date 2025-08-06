@@ -14,7 +14,7 @@ const FashionEvent = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 flex flex-col justify-end items-start text-white p-6">
-          <h3 className="text-2xl font-bold mb-2">Glam Bags</h3>
+          <h3 className="text-2xl font-medium mb-2">Glam Bags</h3>
           <button className="cursor-pointer bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white px-4 py-2 rounded-full">
             Shop Now
           </button>

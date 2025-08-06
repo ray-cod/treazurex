@@ -1,96 +1,146 @@
-import React from "react";
+import { useState } from "react";
+import useUserAccountStore from "../../hooks/useUserAccountStore";
+import { Box, Clock, Heart, Mail, MapPin, Menu, SquarePen, TrendingUp } from "lucide-react";
+import RelatedProduct from "../../components/RelatedProduct";
 
 const Profile = () => {
+  const userData = useUserAccountStore();
+  const [isEmailVisible, setIsEmailVisible] = useState(false)
+
   return (
-    <section className="min-h-screen container mx-auto px-4 py-10">
+    <section className="min-h-screen md:container mx-auto px-4 py-10">
       {/* Profile Header */}
-      <div className="bg-gray-900 p-6 rounded-xl shadow border-gray-800 flex justify-between items-center">
-        <div className="flex gap-4 items-center">
+      <div className="bg-gray-900 p-8 rounded-xl shadow border-gray-800 flex justify-between items-start max-md:flex-col gap-4">
+        <div className="flex gap-4 items-center max-md:flex-col max-md:items-start">
           <img
-            src="https://i.pravatar.cc/100"
-            alt="User"
-            className="w-20 h-20 rounded-full border"
+            src={
+              userData.userPicture ||
+              "https://res.cloudinary.com/dicqdr7wa/image/upload/v1753030277/user-2517433_1280_pqzokk.png"
+            }
+            alt="User Profile"
+            className="w-25 h-25 rounded-full"
           />
-          <div>
-            <h2 className="text-xl font-bold">
-              Alexandra <span className="text-yellow-500">Chen</span>
+          <div className="flex flex-col gap-3">
+            <h2 className="text-3xl font-bold">
+              {userData.userFirstName}{" "}
+              <span className="text-yellow-500">{userData.userLastName}</span>
             </h2>
-            <p className="text-sm text-gray-500">@alexandra_chen</p>
-            <div className="text-xs text-gray-400">San Francisco, CA</div>
-            <div className="text-xs text-gray-600 mt-1 underline cursor-pointer">
-              Show email
+            <p className="text-gray-500 text-sm">User ID: {userData.userId}</p>
+
+            <div className="flex gap-4 flex-wrap text-sm">
+              <div id="email" className="text-gray-400 flex gap-2 items-center">
+                <Mail className="w-4 h-4" />
+                <p
+                  className="underline cursor-pointer"
+                  onClick={() => setIsEmailVisible(!isEmailVisible)}
+                >
+                  {isEmailVisible ? userData.userEmail : "Show email"}
+                </p>
+              </div>
+
+              <div
+                id="address"
+                className="flex items-center gap-2 text-gray-400"
+              >
+                <MapPin className="w-4 h-4" />
+                <address>No Address</address>
+              </div>
             </div>
+            <ul className="flex gap-5 items-center">
+              <li className="flex flex-col items-center">
+                <span className="font-semibold">7</span>
+                <span className="text-xs">Orders</span>
+              </li>
+              <li className="flex flex-col items-center">
+                <span className="font-semibold">11</span>
+                <span className="text-xs">Wishlist</span>
+              </li>
+              <li className="flex flex-col items-center">
+                <span className="font-semibold">2</span>
+                <span className="text-xs">Addresses</span>
+              </li>
+            </ul>
           </div>
         </div>
-        <button className="bg-indigo-900 text-white px-4 py-2 rounded-md text-sm">
+        <button className="bg-blue-500 hover:bg-blue-600 active:bg-blue-800 text-white px-4 py-2 rounded-lg inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium cursor-pointer">
+          <SquarePen className="w-4 h-4" />
           Edit Profile
         </button>
       </div>
 
       <div className="flex py-6 gap-6">
         {/* Sidebar */}
-        <nav className="w-64 bg-gray-900 rounded-xl p-4 shadow border-gray-800 space-y-4 max-lg:hidden">
+        <nav className="w-64 bg-gray-900 rounded-xl p-4 shadow border-gray-800 space-y-4 max-md:hidden">
           <div className="space-y-2">
             <NavItem active label="Profile Overview" />
             <NavItem label="Orders" />
             <NavItem label="Wishlist" />
             <NavItem label="Address Book" />
             <NavItem label="Payment Methods" />
-            <NavItem label="Settings" />
           </div>
-          <button className="text-red-500 font-medium">Logout</button>
+          <button className="text-red-500 font-medium cursor-pointer hover:text-red-600">
+            Logout
+          </button>
         </nav>
 
         {/* Main Content */}
         <section className="flex-1 space-y-6">
+          {/* Mobile menu */}
+          <div className="flex justify-between p-2 border border-gray-500 rounded-lg hover:bg-gray-900 cursor-pointer md:hidden">
+            <h3>Menu</h3>
+            <Menu />
+          </div>
+
           {/* Summary Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            <SummaryCard title="Lifetime orders" value="24" note="This month" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <SummaryCard
+              title="Lifetime orders"
+              value="24"
+              note="This month"
+              icon={<Box />}
+              iconColor="text-blue-500"
+            />
             <SummaryCard
               title="Items saved"
               value="8"
               note="2 recent"
-              icon="❤️"
+              icon={<Heart />}
+              iconColor="text-yellow-500"
             />
             <SummaryCard
               title="Last order"
               value="3 days"
               note="Delivered"
-              icon="⏱️"
+              icon={<Clock />}
+              iconColor="text-green-500"
             />
-            <SummaryCard title="Premium member" value="2022" note="2 years" />
-          </div>
-
-          {/* Recently Viewed */}
-          <div className="bg-gray-900 p-6 rounded-xl shadow border-gray-800">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold">Recently Viewed</h3>
-              <button className="text-sm text-gray-500 underline">
-                View All
-              </button>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <ProductCard
-                image="/watch.jpg"
-                title="Luxury Swiss Watch"
-                price="$2,499"
-                tag="Watches"
-              />
-              <ProductCard
-                image="/handbag.jpg"
-                title="Designer Handbag"
-                price="$899"
-                tag="Bags"
-              />
-              <ProductCard
-                image="/jewelry.jpg"
-                title="Premium Jewelry Set"
-                price="$1,259"
-                tag="Jewelry"
-              />
-            </div>
+            <SummaryCard
+              title="Premium member"
+              value="2022"
+              note="2 years"
+              icon={<TrendingUp />}
+              iconColor="text-yellow-500"
+            />
           </div>
         </section>
+      </div>
+
+      {/* Recently Viewed */}
+      <div className="bg-gray-900 p-6 rounded-xl shadow border-gray-800">
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-lg font-semibold">Recently Viewed</h3>
+          <button className="text-sm text-gray-500 underline">View All</button>
+        </div>
+
+        <div className="product-slider">
+          <div className="slider-container">
+            <RelatedProduct />
+            <RelatedProduct />
+            <RelatedProduct />
+            <RelatedProduct />
+            <RelatedProduct />
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -107,25 +157,12 @@ const NavItem = ({ label, active }) => (
   </div>
 );
 
-const SummaryCard = ({ title, value, note, icon }) => (
-  <div className="bg-gray-900 p-4 rounded-xl shadow border-gray-800 text-center">
-    {icon && <div className="text-2xl mb-1">{icon}</div>}
+const SummaryCard = ({ title, value, note, icon, iconColor }) => (
+  <div className="bg-gray-900 p-6 rounded-xl shadow border-gray-800 max-md:flex max-md:flex-col max-md:items-center max-md:justify-center transition-transform duration-200 ease-in-out hover:-translate-y-0.5">
+    {icon && <div className={`text-2xl mb-1 ${iconColor}`}>{icon}</div>}
     <div className="text-lg font-semibold">{value}</div>
     <div className="text-xs text-gray-500">{title}</div>
     {note && <div className="text-[11px] text-gray-400 mt-1">{note}</div>}
-  </div>
-);
-
-const ProductCard = ({ image, title, price, tag }) => (
-  <div className="border-gray-800 rounded-xl p-2 bg-gray-950 shadow-sm hover:shadow-md transition">
-    <img
-      src={image}
-      alt={title}
-      className="w-full h-40 object-cover rounded-md"
-    />
-    <div className="mt-2 text-xs text-gray-400">{tag}</div>
-    <div className="text-sm font-semibold">{title}</div>
-    <div className="text-yellow-600 font-medium">{price}</div>
   </div>
 );
 
