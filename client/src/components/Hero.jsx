@@ -27,7 +27,7 @@ export default function Hero() {
           Get Started
         </button>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#030712] to-transparent w-[100%]"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t dark:from-[#030712] from-gray-100 to-transparent w-[100%]"></div>
     </section>
   );
 }

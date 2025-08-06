@@ -73,7 +73,7 @@ const Home = () => {
       </section>
 
       {/* Section Two */}
-      <section className="bg-gray-100 dark:bg-gray-800 py-10 pb-20 relative">
+      <section className="bg-gray-200 dark:bg-gray-900 py-10 pb-20 relative">
         <article className="container mx-auto px-4 flex max-md:flex-wrap-reverse items-center gap-10">
           <div>
             <h2 className="text-4xl max-sm:text-[29px] max-md:text-[33px] pb-5 font-bold">
@@ -88,7 +88,9 @@ const Home = () => {
               <li className="flex items-start gap-2">
                 <CircleArrowRight className="w-4 h-4 text-blue-700 mt-1" />
                 <div>
-                  <h3 className="font-bold">Quality craftsmanship</h3>
+                  <h3 className="font-bold text-black dark:text-white">
+                    Quality craftsmanship
+                  </h3>
                   <p className="text-sm w-3/4">
                     Our products are made with the finest materials.
                   </p>
@@ -97,7 +99,9 @@ const Home = () => {
               <li className="flex items-start gap-2">
                 <CircleArrowRight className="w-4 h-4 text-blue-700 mt-1" />
                 <div>
-                  <h3 className="font-bold">Sustainable practices</h3>
+                  <h3 className="font-bold text-black dark:text-white">
+                    Sustainable practices
+                  </h3>
                   <p className="text-sm w-3/4">
                     We prioritize eco-friendly materials and processes.
                   </p>
@@ -106,7 +110,9 @@ const Home = () => {
               <li className="flex items-start gap-2">
                 <CircleArrowRight className="w-4 h-4 text-blue-700 mt-1" />
                 <div>
-                  <h3 className="font-bold">Innovative designs</h3>
+                  <h3 className="font-bold text-black dark:text-white">
+                    Innovative designs
+                  </h3>
                   <p className="text-sm w-3/4">
                     Our products feature unique designs that stand out.
                   </p>
@@ -122,8 +128,9 @@ const Home = () => {
             />
           </div>
         </article>
-        <div className="absolute bottom-0 right-0 h-20 bg-gradient-to-t from-[#030712] to-transparent w-[100%]"></div>
+        <div className="absolute bottom-0 right-0 h-20 bg-gradient-to-t from-gray-100 dark:from-[#030712] to-transparent w-[100%]"></div>
       </section>
+
       {/* Section Three */}
       <section id="collections" className="container mx-auto px-4 py-10">
         <h2 className="text-6xl max-sm:text-5xl max-md:text-[54px] font-bold pb-12">
@@ -142,10 +149,9 @@ const Home = () => {
 
       {/* Section Four: Scroll stack */}
       <ScrollStack />
-      
 
       {/* Section Five: Testimonials */}
-      <section className="bg-[#030712] text-gray-100 py-16 px-6 md:px-20">
+      <section className="py-16 px-6 md:px-20">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
             What Our Customers Say
@@ -156,9 +162,9 @@ const Home = () => {
             {[1, 2, 3].map((id) => (
               <div
                 key={id}
-                className="bg-[#111827] rounded-2xl p-6 shadow-lg border border-gray-800"
+                className="dark:bg-[#111827] rounded-2xl p-6 shadow-lg border border-gray-800"
               >
-                <p className="text-gray-300 mb-4 italic">
+                <p className="text-gray-600 dark:text-gray-300 mb-4 italic">
                   "Absolutely love it! The quality is great and the service was
                   amazing. I’ll definitely be back for more."
                 </p>
@@ -168,12 +174,12 @@ const Home = () => {
                       id + 10
                     }.jpg`}
                     alt="Customer"
-                    className="w-12 h-12 rounded-full border-2 border-blue-500"
+                    className="w-12 h-12 rounded-full"
                   />
                   <div className="text-left">
-                    <h4 className="font-semibold text-white">John Doe</h4>
-                    <span className="text-sm text-gray-400">
-                      Verified Buyer
+                    <h4 className="font-semibold">John Doe</h4>
+                    <span className="text-sm text-gray-600 dark:text-gray-300">
+                      Customer
                     </span>
                   </div>
                 </div>
