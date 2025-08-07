@@ -4,7 +4,7 @@ const FashionEvent = () => {
   return (
     <section className="container mx-auto h-full py-16 max-sm:py-8 px-4">
       <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-center">
-        Latest Fashion Show
+        Latest Watches
       </h2>
 
       <article className="w-full h-[350px] sticky rounded-lg overflow-hidden">
