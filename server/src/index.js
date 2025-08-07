@@ -11,7 +11,11 @@ const app = express()
 
 const PORT = process.env.PORT || 3500
 
-const whiteList = [process.env.CLIENT_URL, "http://localhost:3500"];
+const whiteList = [
+  process.env.CLIENT_URL,
+  "http://localhost:3500",
+  "http://localhost",
+];
 
 const corsOptions = {
   origin: (origin, callback) => {

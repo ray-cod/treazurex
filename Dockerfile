@@ -1,8 +1,12 @@
-# Backend Dockerfile
-FROM node:18-alpine
+# Dockerfile
+FROM node:20
+
 WORKDIR /app
-COPY server/package*.json ./
-RUN npm install
-COPY server/. .
-EXPOSE 5000
-CMD ["node", "src/index.js"]
+
+COPY server/package*.json ./server/
+RUN cd server && npm install
+
+COPY . .
+
+WORKDIR /app/server
+CMD ["npm", "start"]
