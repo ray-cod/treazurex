@@ -95,12 +95,16 @@ const authModel = {
 
   // Handle Google login
   handleGoogleLogin: action(() => {
-    window.location.href = "http://localhost:3500/api/auth/google";
+    window.location.href = `${
+      import.meta.env.VITE_API_BASE_URL
+    }/api/auth/google`;
   }),
 
   // Handle Facebook login
   handleFacebookLogin: action(() => {
-    window.location.href = "http://localhost:3500/api/auth/facebook";
+    window.location.href = `${
+      import.meta.env.VITE_API_BASE_URL
+    }/api/auth/facebook`;
   }),
 };
 
