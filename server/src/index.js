@@ -8,7 +8,6 @@ const passport = require("passport");
 require("./config/passport");
 
 const app = express()
-
 const PORT = process.env.PORT || 3500
 
 const whiteList = [
