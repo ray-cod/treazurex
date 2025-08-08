@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const { logger } = require('./middlewares/logEvents')
+const securityHeaders = require('./middlewares/securityHeaders')
 const authRoutes = require('./routes/authRoutes')
 const apiRoutes = require('./routes/apiRoutes')
 const cookieParser = require('cookie-parser')
