@@ -2,7 +2,7 @@ const helmet = require("helmet");
 
 const securityHeaders = helmet({
   contentSecurityPolicy: {
-    useDefaults: true,
+    // useDefaults: true,
     directives: {
       "default-src": ["'self'"],
       "script-src": ["'self'"],
@@ -21,7 +21,6 @@ const securityHeaders = helmet({
       "frame-ancestors": ["'none'"],
     },
   },
-  crossOriginEmbedderPolicy: false,
 });
 
 module.exports = securityHeaders;
