@@ -34,6 +34,9 @@ app.use(logger);
 // Cross origin ressource sharing
 app.use(cors(corsOptions))
 
+// helmet security setup
+app.use(securityHeaders);
+
 app.use(passport.initialize());
 app.use(express.json())
 app.use(cookieParser())
