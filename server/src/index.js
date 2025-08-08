@@ -36,14 +36,7 @@ app.use(logger);
 app.use(cors(corsOptions))
 
 // helmet security setup
-// app.use(securityHeaders);
-app.use((req, res, next) => {
-  res.setHeader(
-    "Content-Security-Policy",
-    "frame-ancestors 'self'; default-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' 'unsafe-inline' data: https://treazurex-aw2q.vercel.app; font-src 'self';"
-  );
-  next();
-});
+app.use(securityHeaders);
 
 app.use(passport.initialize());
 app.use(express.json())
