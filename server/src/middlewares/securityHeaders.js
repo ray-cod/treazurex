@@ -30,7 +30,7 @@ const securityHeaders = helmet({
       ],
 
       // Prevent embedding in iframes
-      "frame-ancestors": ["'none'"],
+      "frame-ancestors": ["'self'"],
     },
   },
   crossOriginEmbedderPolicy: false,
