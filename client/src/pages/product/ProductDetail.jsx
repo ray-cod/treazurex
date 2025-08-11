@@ -89,11 +89,11 @@ const ProductDetail = () => {
           </div>
 
           {/* Tabs for Reviews and F&Q */}
-          <ul className="flex items-center gap-4 bg-gray-200 dark:bg-gray-900 p-2 rounded-lg overflow-hidden">
+          <ul className="flex items-center gap-4 max-sm:gap-0 bg-gray-200 dark:bg-gray-900 p-2 rounded-lg overflow-hidden text-sm">
             <li>
               <button
                 onClick={() => setActiveTab("description")}
-                className={`cursor-pointer py-2 w-50 rounded-lg max-md:w-40 max-sm:w-30 ${
+                className={`cursor-pointer py-2 w-50 rounded-lg max-md:w-40 max-sm:w-26 ${
                   activeTab === "description"
                     ? "text-black dark:text-white bg-gray-100 dark:bg-gray-950"
                     : "text-gray-600 dark:text-gray-400"
@@ -105,7 +105,7 @@ const ProductDetail = () => {
             <li>
               <button
                 onClick={() => setActiveTab("reviews")}
-                className={`cursor-pointer py-2 w-50 rounded-lg ${
+                className={`cursor-pointer py-2 w-50 rounded-lg max-md:w-40 max-sm:w-26 ${
                   activeTab === "reviews"
                     ? "text-black dark:text-white bg-gray-100 dark:bg-gray-950"
                     : "text-gray-600 dark:text-gray-400"
@@ -117,13 +117,13 @@ const ProductDetail = () => {
             <li>
               <button
                 onClick={() => setActiveTab("f&q")}
-                className={`cursor-pointer py-2 w-50 rounded-lg ${
+                className={`cursor-pointer py-2 w-50 rounded-lg max-md:w-40 max-sm:w-26 ${
                   activeTab === "f&q"
                     ? "text-black dark:text-white bg-gray-100 dark:bg-gray-950"
                     : "text-gray-600 dark:text-gray-400"
                 }`}
               >
-                Questions
+                F&Q
               </button>
             </li>
           </ul>
