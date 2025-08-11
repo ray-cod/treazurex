@@ -52,16 +52,11 @@ app.use('/api', authRoutes)
 
 // API routes
 app.use('/api/store', apiRoutes)
-
-// Quick error handler (To be removed)
-// app.use((req, res) => {
-//   res.status(404).json({ message: 'Route not found' });
-// });
   
 // Error handler for uncaught exceptions
 app.use((err, req, res, next) => {
   console.error('Uncaught Exception:', err);
-  res.status(500).json({ message: 'Internal server error' });
+  res.status(500).json({ message: 'Internal server error \nMessage: ' + err });
 });
 
 // Running server
