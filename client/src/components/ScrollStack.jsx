@@ -22,7 +22,7 @@ const ScrollStack = () => {
 
           <article className="w-full h-[350px] sticky top-[134px] rounded-lg overflow-hidden">
             <img
-              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394446/arno-senoner-nYqRSq0gJno-unsplash_dvygyx.jpg"
+              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394439/james-ree-ZmeFtu11Hpc-unsplash_bfcbxr.jpg"
               alt="Luxury bag"
               className="w-full h-full object-cover"
             />

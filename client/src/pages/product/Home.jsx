@@ -51,7 +51,7 @@ const Home = () => {
       <section id="latest-items" className="container mx-auto px-4 py-10">
         <div className="flex items-end justify-between flex-wrap">
           <div>
-            <h2 className="text-6xl max-sm:text-5xl max-md:text-[54px] font-bold pt-8 pb-7">
+            <h2 className="text-6xl max-sm:text-4xl max-md:text-5xl font-medium pt-8 pb-7">
               Beyond The Edges <br /> of{" "}
               <span className="text-blue-500">Your Needs</span>
             </h2>
@@ -76,7 +76,7 @@ const Home = () => {
       <section className="bg-gray-200 dark:bg-gray-900 py-10 pb-20 relative">
         <article className="container mx-auto px-4 flex max-md:flex-wrap-reverse items-center gap-10">
           <div>
-            <h2 className="text-4xl max-sm:text-[29px] max-md:text-[33px] pb-5 font-bold">
+            <h2 className="text-4xl max-sm:text-[29px] max-md:text-[33px] pb-5 font-medium">
               Your journey to the perfect product starts here.
             </h2>
             <p className="text-gray-600 dark:text-gray-300">
@@ -88,7 +88,7 @@ const Home = () => {
               <li className="flex items-start gap-2">
                 <CircleArrowRight className="w-4 h-4 text-blue-700 mt-1" />
                 <div>
-                  <h3 className="font-bold text-black dark:text-white">
+                  <h3 className="font-medium text-black dark:text-white">
                     Quality craftsmanship
                   </h3>
                   <p className="text-sm w-3/4">
@@ -99,7 +99,7 @@ const Home = () => {
               <li className="flex items-start gap-2">
                 <CircleArrowRight className="w-4 h-4 text-blue-700 mt-1" />
                 <div>
-                  <h3 className="font-bold text-black dark:text-white">
+                  <h3 className="font-medium text-black dark:text-white">
                     Sustainable practices
                   </h3>
                   <p className="text-sm w-3/4">
@@ -110,7 +110,7 @@ const Home = () => {
               <li className="flex items-start gap-2">
                 <CircleArrowRight className="w-4 h-4 text-blue-700 mt-1" />
                 <div>
-                  <h3 className="font-bold text-black dark:text-white">
+                  <h3 className="font-medium text-black dark:text-white">
                     Innovative designs
                   </h3>
                   <p className="text-sm w-3/4">
@@ -133,7 +133,7 @@ const Home = () => {
 
       {/* Section Three */}
       <section id="collections" className="container mx-auto px-4 py-10">
-        <h2 className="text-6xl max-sm:text-5xl max-md:text-[54px] font-bold pb-12">
+        <h2 className="text-6xl max-sm:text-4xl max-md:text-5xl font-medium pb-12">
           <span className="text-blue-500">Explore</span> <br /> Our Collections
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 container mx-auto">
@@ -153,7 +153,7 @@ const Home = () => {
       {/* Section Five: Testimonials */}
       <section className="py-16 px-6 md:px-20">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
+          <h2 className="text-3xl md:text-4xl font-medium mb-12">
             What Our Customers Say
           </h2>
 
