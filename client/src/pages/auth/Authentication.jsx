@@ -6,7 +6,7 @@ const Authentication = () => {
   const { handleGoogleLogin, handleFacebookLogin } = useAuthStore();
 
   return (
-    <section className="auth-section bg-cover bg-right min-h-screen dark:text-gray-100 pb-20">
+    <section className="auth-section bg-cover bg-right min-h-screen text-black dark:text-gray-100 pb-20">
       <AuthHeader />
       <main className="auth-main flex flex-col items-center">
         <h1 className="text-3xl mb-4 mt-6 max-sm:text-2xl">

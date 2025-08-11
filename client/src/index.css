@@ -6,18 +6,29 @@
 }
 
 .active{
-  border-bottom: solid 2px white;
+  border-bottom: solid 2px black;
   padding-bottom: 0.85rem;
   transition: 0.5s;
-  color: white;
+  color: black;
 }
 
-.auth-section{
-  background-image: linear-gradient(#030712f6, #030712f6),
-  url("./assets/white-side-model.jpg");
+.auth-section {
+  background-image: linear-gradient(#ffffffd0, #fffffff6),
+    url("./assets/white-side-model.jpg");
 }
 
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .auth-section {
+    background-image: linear-gradient(#030712f6, #030712f6),
+      url("./assets/white-side-model.jpg");
+  }
 
+  .active{
+    border-bottom: solid 2px white;
+    color: white;
+  }
+}
 
 .slider-container {
   display: flex;

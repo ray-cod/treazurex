@@ -72,7 +72,7 @@ const Header = ({ userData, isUserLoggedIn }) => {
           <button
             className={`${
               !mobileMenu ? "md:hidden" : "hidden"
-            } border border-[rgba(255,255,255,0.274)] rounded-lg w-[34px] h-[34px] cursor-pointer md:hidden`}
+            } border border-black dark:border-[rgba(255,255,255,0.274)] rounded-lg w-[34px] h-[34px] cursor-pointer md:hidden`}
             onClick={() => setMobileMenu("active")}
           >
             &#9776;
@@ -80,7 +80,7 @@ const Header = ({ userData, isUserLoggedIn }) => {
           <button
             className={`${
               mobileMenu ? "md:hidden" : "hidden"
-            } border border-[rgba(255,255,255,0.274)] rounded-lg w-[34px] h-[34px] cursor-pointer md:hidden`}
+            } border border-black dark:border-[rgba(255,255,255,0.274)] rounded-lg w-[34px] h-[34px] cursor-pointer md:hidden`}
             onClick={() => setMobileMenu("")}
           >
             &#10005;
@@ -93,7 +93,7 @@ const Header = ({ userData, isUserLoggedIn }) => {
         id="mobile-navbar"
         className={`${
           mobileMenu ? "md:hidden" : "hidden"
-        } bg-black w-full py-10 px-6 absolute z-11`}
+        } bg-white dark:bg-black w-full py-10 px-6 absolute z-11`}
       >
         <div id="user" className="pl-4">
           {isUserLoggedIn ? (
@@ -148,7 +148,7 @@ const Header = ({ userData, isUserLoggedIn }) => {
         </nav>
 
         <button
-          className="mt-10 font-semibold px-4 py-2 w-full bg-blue-500 hover:cursor-pointer hover:bg-blue-600 active:bg-blue-700 rounded-lg"
+          className="mt-10 font-semibold px-4 py-2 w-full bg-blue-500 hover:cursor-pointer hover:bg-blue-600 active:bg-blue-700 rounded-lg text-white"
           onClick={() => setMobileMenu("")}
         >
           Log Out
