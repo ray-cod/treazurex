@@ -3,7 +3,7 @@ export default function Hero() {
     
   return (
     <section className="relative min-h-screen flex items-end justify-center bg-black text-white px-4">
-      {/* Background Graphic (could also be a <video> or <img>) */}
+      {/* Background Graphic */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1752578786/lonely-814631_1920_qu8ans.jpg"

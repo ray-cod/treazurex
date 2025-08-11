@@ -74,7 +74,7 @@ const Shop = () => {
             </div>
           </section>
 
-          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
+          <div className="grid grid-cols-3 gap-6 max-md:gap-4 max-lg:grid-cols-2">
             {currentPosts.map((product) => (
               <ShopCard key={product.id} product={product} />
             ))}
