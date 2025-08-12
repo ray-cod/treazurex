@@ -1,11 +1,14 @@
 import { useState } from "react";
 import useUserAccountStore from "../../hooks/useUserAccountStore";
-import { Box, Clock, Heart, Mail, MapPin, Menu, SquarePen, TrendingUp } from "lucide-react";
+import { Mail, MapPin, Menu, SquarePen } from "lucide-react";
 import RelatedProduct from "../../components/RelatedProduct";
+import ProfileOptionsDisplay from "../../components/ProfileOptionsDisplay";
+import UserProfileMenu from "../../components/UserProfileMenu";
 
 const Profile = () => {
   const userData = useUserAccountStore();
-  const [isEmailVisible, setIsEmailVisible] = useState(false)
+  const [isEmailVisible, setIsEmailVisible] = useState(false);
+  const [menuOption, setMenuOption] = useState("profile");
 
   return (
     <section className="min-h-screen md:container mx-auto px-4 py-10">
@@ -75,18 +78,10 @@ const Profile = () => {
 
       <div className="flex py-6 gap-6">
         {/* Sidebar */}
-        <nav className="w-64 bg-gray-200 dark:bg-gray-900 rounded-xl p-4 shadow border-gray-800 space-y-4 max-md:hidden">
-          <div className="space-y-2">
-            <NavItem active label="Profile Overview" />
-            <NavItem label="Orders" />
-            <NavItem label="Wishlist" />
-            <NavItem label="Address Book" />
-            <NavItem label="Payment Methods" />
-          </div>
-          <button className="text-red-500 font-medium cursor-pointer hover:text-red-600">
-            Logout
-          </button>
-        </nav>
+        <UserProfileMenu
+          menuOption={menuOption}
+          setMenuOption={setMenuOption}
+        />
 
         {/* Main Content */}
         <section className="flex-1 space-y-6">
@@ -96,37 +91,8 @@ const Profile = () => {
             <Menu />
           </div>
 
-          {/* Summary Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <SummaryCard
-              title="Lifetime orders"
-              value="24"
-              note="This month"
-              icon={<Box />}
-              iconColor="text-blue-500"
-            />
-            <SummaryCard
-              title="Items saved"
-              value="8"
-              note="2 recent"
-              icon={<Heart />}
-              iconColor="text-yellow-500"
-            />
-            <SummaryCard
-              title="Last order"
-              value="3 days"
-              note="Delivered"
-              icon={<Clock />}
-              iconColor="text-green-500"
-            />
-            <SummaryCard
-              title="Premium member"
-              value="2022"
-              note="2 years"
-              icon={<TrendingUp />}
-              iconColor="text-yellow-500"
-            />
-          </div>
+          {/* Profile Options Display */}
+          <ProfileOptionsDisplay menuOption={menuOption} />
         </section>
       </div>
 
@@ -152,31 +118,5 @@ const Profile = () => {
     </section>
   );
 };
-
-// Reusable Components
-const NavItem = ({ label, active }) => (
-  <div
-    className={`px-3 py-2 rounded-lg text-sm cursor-pointer ${
-      active
-        ? "bg-gray-400 dark:bg-gray-700 font-semibold"
-        : "hover:bg-gray-400 dark:hover:bg-gray-700"
-    }`}
-  >
-    {label}
-  </div>
-);
-
-const SummaryCard = ({ title, value, note, icon, iconColor }) => (
-  <div className="bg-gray-200 dark:bg-gray-900 p-6 rounded-xl shadow border-gray-800 max-md:flex max-md:flex-col max-md:items-center max-md:justify-center transition-transform duration-200 ease-in-out hover:-translate-y-0.5">
-    {icon && <div className={`text-2xl mb-1 ${iconColor}`}>{icon}</div>}
-    <div className="text-lg font-semibold">{value}</div>
-    <div className="text-xs text-gray-600 dark:text-gray-400">{title}</div>
-    {note && (
-      <div className="text-[11px] text-gray-600 dark:text-gray-400 mt-1">
-        {note}
-      </div>
-    )}
-  </div>
-);
 
 export default Profile;
