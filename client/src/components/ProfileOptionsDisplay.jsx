@@ -1,3 +1,4 @@
+import OrdersList from "./OrdersList";
 import ProfileOverview from "./ProfileOverview";
 
 const ProfileOptionsDisplay = ({ menuOption }) => {
@@ -6,7 +7,7 @@ const ProfileOptionsDisplay = ({ menuOption }) => {
       {menuOption === "profile" ? (
         <ProfileOverview />
       ) : menuOption === "orders" ? (
-        <div>Orders</div>
+        <OrdersList />
       ) : menuOption === "wishlist" ? (
         <div>wishlist</div>
       ) : menuOption === "address" ? (

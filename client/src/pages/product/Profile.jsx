@@ -8,7 +8,7 @@ import UserProfileMenu from "../../components/UserProfileMenu";
 const Profile = () => {
   const userData = useUserAccountStore();
   const [isEmailVisible, setIsEmailVisible] = useState(false);
-  const [menuOption, setMenuOption] = useState("profile");
+  const [menuOption, setMenuOption] = useState("orders");
 
   return (
     <section className="min-h-screen md:container mx-auto px-4 py-10">
