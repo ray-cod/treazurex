@@ -25,14 +25,6 @@ const orders = [
     total: "R89.99",
     items: 1,
   },
-  {
-    id: "#TRX-2024-004",
-    date: "2025-01-05",
-    status: "delivered",
-    total: "R199.99",
-    items: 2,
-    trackingNumber: "TRK456789123",
-  },
 ];
 
 const getStatusIcon = (status) => {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useUserAccountStore from "../../hooks/useUserAccountStore";
 import { Mail, MapPin, Menu, SquarePen } from "lucide-react";
 import RelatedProduct from "../../components/RelatedProduct";
@@ -8,7 +8,11 @@ import UserProfileMenu from "../../components/UserProfileMenu";
 const Profile = () => {
   const userData = useUserAccountStore();
   const [isEmailVisible, setIsEmailVisible] = useState(false);
-  const [menuOption, setMenuOption] = useState("orders");
+  const [menuOption, setMenuOption] = useState(localStorage.getItem("menuOption") || "profile");
+
+  useEffect(() => {
+    localStorage.setItem("menuOption", menuOption);
+  }, [menuOption])
 
   return (
     <section className="min-h-screen md:container mx-auto px-4 py-10">
