@@ -9,7 +9,7 @@ const FashionEvent = () => {
 
       <article className="w-full h-[350px] sticky rounded-lg overflow-hidden">
         <img
-          src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394439/ben-mathis-seibel-uBHntlP-FUk-unsplash_rnf6h3.jpg"
+          src="https://res.cloudinary.com/dicqdr7wa/image/upload/f_auto,q_auto,dpr_auto,c_fill,g_auto,w_1200/v1754394439/ben-mathis-seibel-uBHntlP-FUk-unsplash_rnf6h3.jpg"
           alt="Black Luxury bag"
           className="w-full h-full object-cover"
         />

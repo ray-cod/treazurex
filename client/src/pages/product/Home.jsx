@@ -13,19 +13,19 @@ const Home = () => {
     {
       id: 1,
       image_url:
-        "https://res.cloudinary.com/dicqdr7wa/image/upload/v1752845781/woman-with-shopping-bags-studio-yellow-background-isolated_vst2sp.jpg",
+        "https://res.cloudinary.com/dicqdr7wa/image/upload/f_auto,q_auto,dpr_auto,c_fill,g_auto,w_1200/v1752845781/woman-with-shopping-bags-studio-yellow-background-isolated_vst2sp.jpg",
       name: "Classy Wear",
     },
     {
       id: 2,
       image_url:
-        "https://res.cloudinary.com/dicqdr7wa/image/upload/v1753117181/jay-soundo-4JTvVYhijiY-unsplash_z6tjia.jpg",
+        "https://res.cloudinary.com/dicqdr7wa/image/upload/f_auto,q_auto,dpr_auto,c_fill,g_auto,w_1200/v1753117181/jay-soundo-4JTvVYhijiY-unsplash_z6tjia.jpg",
       name: "Young and Stylish",
     },
     {
       id: 3,
       image_url:
-        "https://res.cloudinary.com/dicqdr7wa/image/upload/v1753117178/kunal-sutrave-YSFlaL_zyLc-unsplash_bl5qvb.jpg",
+        "https://res.cloudinary.com/dicqdr7wa/image/upload/f_auto,q_auto,dpr_auto,c_fill,g_auto,w_1200/v1753117178/kunal-sutrave-YSFlaL_zyLc-unsplash_bl5qvb.jpg",
       name: "Evening Glam",
     },
   ];
@@ -122,7 +122,7 @@ const Home = () => {
           </div>
           <div className="w-full">
             <img
-              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1752848701/slim-young-woman-posing-blue-wall_vrkb11.jpg"
+              src="https://res.cloudinary.com/dicqdr7wa/image/upload/f_auto,q_auto,dpr_auto,c_fill,g_auto,w_1200/v1752848701/slim-young-woman-posing-blue-wall_vrkb11.jpg"
               alt="Fashion"
               className="w-full h-[25rem] object-cover max-sm:h-80 max-md:h-90 rounded-lg shadow-lg"
             />

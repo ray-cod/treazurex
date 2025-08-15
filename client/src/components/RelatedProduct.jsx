@@ -5,7 +5,7 @@ const RelatedProduct = () => {
   return (
     <article className="w-60 max-md:w-54 max-sm:w-48 overflow-hidden cursor-pointer">
       <img
-        src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1753360489/ca9f9922-7ad0-4d6f-a067-5f12e7e6651c_sgxvq9.jpg"
+        src="https://res.cloudinary.com/dicqdr7wa/image/upload/f_auto,q_auto,dpr_auto,c_fill,g_auto,w_1200/v1753360489/ca9f9922-7ad0-4d6f-a067-5f12e7e6651c_sgxvq9.jpg"
         alt="Related Product"
         className="w-full h-60 max-md:h-54 max-sm:h-48 object-cover shadow-lg"
       />

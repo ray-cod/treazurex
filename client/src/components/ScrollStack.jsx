@@ -8,7 +8,7 @@ const ScrollStack = () => {
         <div className="flex flex-col items-center sticky gap-2">
           <article className="w-full h-[350px] sticky top-[134px] rounded-lg overflow-hidden">
             <img
-              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394439/ben-mathis-seibel-uBHntlP-FUk-unsplash_rnf6h3.jpg"
+              src="https://res.cloudinary.com/dicqdr7wa/image/upload/f_auto,q_auto,dpr_auto,c_fill,g_auto,w_1200/v1754394439/ben-mathis-seibel-uBHntlP-FUk-unsplash_rnf6h3.jpg"
               alt="Luxury watch"
               className="w-full h-full object-cover"
             />
@@ -22,7 +22,7 @@ const ScrollStack = () => {
 
           <article className="w-full h-[350px] sticky top-[134px] rounded-lg overflow-hidden">
             <img
-              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394439/james-ree-ZmeFtu11Hpc-unsplash_bfcbxr.jpg"
+              src="https://res.cloudinary.com/dicqdr7wa/image/upload/f_auto,q_auto,dpr_auto,c_fill,g_auto,w_1200/v1754394439/james-ree-ZmeFtu11Hpc-unsplash_bfcbxr.jpg"
               alt="Luxury bag"
               className="w-full h-full object-cover"
             />
@@ -36,7 +36,7 @@ const ScrollStack = () => {
 
           <article className="w-full h-[350px] sticky top-[134px] rounded-lg overflow-hidden">
             <img
-              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754402932/prahant-designing-studio-HRQHR_lRckk-unsplash_rp09is.jpg"
+              src="https://res.cloudinary.com/dicqdr7wa/image/upload/f_auto,q_auto,dpr_auto,c_fill,g_auto,w_1200/v1754402932/prahant-designing-studio-HRQHR_lRckk-unsplash_rp09is.jpg"
               alt="Silver necklace"
               className="w-full h-full object-cover"
             />
@@ -50,7 +50,7 @@ const ScrollStack = () => {
 
           <article className="w-full h-[350px] sticky top-[134px] rounded-lg overflow-hidden">
             <img
-              src="https://res.cloudinary.com/dicqdr7wa/image/upload/v1754394837/micah-sammie-chaffin-EY_rkLfraEg-unsplash_zll3yx.jpg"
+              src="https://res.cloudinary.com/dicqdr7wa/image/upload/f_auto,q_auto,dpr_auto,c_fill,g_auto,w_1200/v1754394837/micah-sammie-chaffin-EY_rkLfraEg-unsplash_zll3yx.jpg"
               alt="Wedding ring"
               className="w-full h-full object-cover"
             />
