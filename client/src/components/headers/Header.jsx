@@ -22,10 +22,10 @@ const Header = ({ userData, isUserLoggedIn }) => {
           onClick={() => setMobileMenu("")}
         >
           <MdShoppingBasket />
-          <h2 className="hidden sm:block">Treazurex</h2>
+          <h2 className="hidden sm:block font-bold tracking-wide">Treazurex</h2>
         </Link>
         <nav id="main-navbar" className="hidden md:block">
-          <ul className="flex gap-6 justify-between items-center">
+          <ul className="flex gap-6 justify-between items-center font-medium">
             <li>
               <Link to="/shop">Categories</Link>
             </li>

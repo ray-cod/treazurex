@@ -16,7 +16,7 @@ const AuthHeader = () => {
           <Link to="/">
             <MdShoppingBasket />
           </Link>
-          <h2 className="hidden sm:block">Treazurex</h2>
+          <h2 className="hidden sm:block font-bold tracking-wide">Treazurex</h2>
         </div>
         <button
           className={`${
@@ -35,7 +35,7 @@ const AuthHeader = () => {
           &#10005;
         </button>
         <nav className="auth-navbar hidden md:block">
-          <ul className="flex gap-6 justify-between items-center">
+          <ul className="flex gap-6 justify-between items-center font-medium">
             <li>
               <Link to="/about">About</Link>
             </li>
