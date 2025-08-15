@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+// import { Tag } from "lucide-react";
 
 export default function Hero() {
     
@@ -20,19 +22,26 @@ export default function Hero() {
             the track.
           </p>
           <div className="mt-8 flex gap-4">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full font-semibold transition cursor-pointer">
+            <Link
+              to="/shop"
+              className="bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition cursor-pointer"
+            >
               Shop Now
-            </button>
-            <button className="border border-blue-600 hover:bg-blue-600 hover:text-slate-900 px-6 py-3 rounded-full font-semibold transition cursor-pointer">
-              Learn More
-            </button>
+            </Link>
+            <Link
+              to="/about"
+              className="border border-blue-600 hover:bg-blue-600 active:bg-blue-700 hover:text-slate-900 px-6 py-3 rounded-full font-semibold transition cursor-pointer"
+            >
+              About Us
+            </Link>
           </div>
         </div>
 
         {/* Right product image */}
         <div className="relative flex justify-center items-center">
-          <div className="absolute -top-6 -right-6 bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+          <div className="absolute top-85 max-sm:top-70 -right-1 bg-green-700 text-white text-xs font-bold px-4 py-2 rounded-tr-full rounded-bl-full shadow-lg">
             UP TO 30% OFF
+            {/* <Tag className="absolute -right-4 w-8 h-8 -bottom-4"/> */}
           </div>
           <img
             src="/images/9-2-watch-picture.png"
