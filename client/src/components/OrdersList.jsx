@@ -58,7 +58,7 @@ const OrdersList = () => {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold text-foreground">Recent Orders</h2>
-        <button>View All Orders</button>
+        <button className="cursor-pointer">View All Orders</button>
       </div>
 
       <div className="space-y-4">
@@ -74,7 +74,11 @@ const OrdersList = () => {
                     <span className="font-semibold text-foreground">
                       {order.id}
                     </span>
-                    <div className={`${getStatusColor(order.status)} px-2 rounded-2xl`}>
+                    <div
+                      className={`${getStatusColor(
+                        order.status
+                      )} px-2 rounded-2xl`}
+                    >
                       {order.status.charAt(0).toUpperCase() +
                         order.status.slice(1)}
                     </div>

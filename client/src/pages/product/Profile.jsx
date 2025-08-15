@@ -103,7 +103,7 @@ const Profile = () => {
       {/* Recently Viewed */}
       <div className="bg-gray-200 dark:bg-gray-900 p-6 rounded-xl shadow border-gray-800">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-semibold">Recently Viewed</h3>
+          <h3 className="text-lg font-semibold">Suggestions</h3>
           <button className="text-sm text-gray-600 dark:text-gray-400 underline">
             View All
           </button>
