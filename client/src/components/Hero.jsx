@@ -35,8 +35,8 @@ export default function Hero() {
             UP TO 30% OFF
           </div>
           <img
-            src="./src/assets/9-2-watch-picture.png"
-            alt="Treazurex Premium Shoe"
+            src="/image/9-2-watch-picture.png"
+            alt="Treazurex Premium Watch"
             className="w-full max-w-md drop-shadow-2xl transform hover:scale-105 transition duration-500"
           />
         </div>
