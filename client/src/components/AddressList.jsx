@@ -6,24 +6,24 @@ const addresses = [
     id: "1",
     type: "Home",
     name: "Raimi Dikamona",
-    street: "123 Sunset Boulevard",
-    city: "Los Angeles",
-    state: "CA",
-    zipCode: "90028",
-    country: "United States",
-    phone: "+1 (555) 123-4567",
+    street: "15 Sandton Drive",
+    city: "Johannesburg",
+    state: "Gauteng",
+    zipCode: "2196",
+    country: "South Africa",
+    phone: "+27 82 123 4567",
     isDefault: true,
   },
   {
     id: "2",
     type: "Work",
     name: "Raimi Dikamona",
-    street: "456 Business Ave, Suite 200",
-    city: "Los Angeles",
-    state: "CA",
-    zipCode: "90210",
-    country: "United States",
-    phone: "+1 (555) 987-6543",
+    street: "102 Rivonia Road, Sandhurst Office Park",
+    city: "Johannesburg",
+    state: "Gauteng",
+    zipCode: "2191",
+    country: "South Africa",
+    phone: "+27 82 987 6543",
     isDefault: false,
   },
 ];
@@ -41,7 +41,7 @@ const AddressList = () => {
           <Address key={address.id} address={address} />
         ))}
 
-        <div className="flex items-center justify-center flex-col-reverse bg-gray-900 rounded-xl p-6 min-h-70">
+        <div className="flex items-center justify-center flex-col-reverse bg-gray-900 rounded-xl p-6 min-h-70 hover:border border-green-300 cursor-pointer">
           <div className="text-center mt-4">
             <h2 className="text-2xl font-bold text-foreground">Address Book</h2>
             <p className="text-muted-foreground">

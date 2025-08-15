@@ -77,13 +77,13 @@ const OrdersList = () => {
                     <div
                       className={`${getStatusColor(
                         order.status
-                      )} px-2 rounded-2xl`}
+                      )} px-2 rounded-2xl text-xs font-medium py-1`}
                     >
                       {order.status.charAt(0).toUpperCase() +
                         order.status.slice(1)}
                     </div>
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-muted-foreground text-gray-600 dark:text-gray-400">
                     Ordered on {new Date(order.date).toLocaleDateString()} •
                     {order.trackingNumber && (
                       <span className="ml-2 text-nowrap">
@@ -98,7 +98,7 @@ const OrdersList = () => {
                 <div className="text-lg font-bold text-foreground mb-1">
                   {order.total}
                 </div>
-                <div className="text-sm text-muted-foreground mb-2">
+                <div className="text-sm text-muted-foreground mb-2 text-gray-600 dark:text-gray-400">
                   {order.items} item{order.items > 1 ? "s" : ""}
                 </div>
                 <div className="flex gap-2">
