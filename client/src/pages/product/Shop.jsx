@@ -29,12 +29,12 @@ const Shop = () => {
     }, []);
   
   return (
-    <>
-      <div className="mx-auto p-4 max-md:hidden">
+    <section>
+      <div className="mx-auto max-md:hidden">
         <img
           src="https://res.cloudinary.com/dicqdr7wa/image/upload/f_auto,q_auto,dpr_auto,c_fill,g_auto,w_1200/v1754395114/alberico-bartoccini-Qr8kA7yNLrc-unsplash_bj0owb.jpg"
           alt="product banner"
-          className="h-50 w-full object-cover rounded-lg shadow-lg mb-6 object-[0px_-333px]"
+          className="h-50 w-full object-cover shadow-lg object-[0px_-333px]"
         />
       </div>
       <div className="md:hidden h-10 bg-gray-200 dark:bg-gray-500 border-gray-800 border-b flex items-center justify-center gap-1">
@@ -43,8 +43,8 @@ const Shop = () => {
           Show
         </Link>
       </div>
-      <section className="container mx-auto p-4">
-        <div id="shop-content" className="py-6 max-lg:w-full lg:px-6">
+      <section className="container mx-auto px-4 py-13 md:py-20 lg:py-24">
+        <div id="shop-content" className="pb-6 max-lg:w-full lg:px-6">
           <h2 className="text-6xl max-md:text-[54px] max-sm:text-[48px] mb-4">
             Shop
           </h2>
@@ -80,17 +80,18 @@ const Shop = () => {
             ))}
           </div>
         </div>
+
         <Pagination
           totalPosts={products.length}
           itemsPerPage={itemsPerPage}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
-      </section>
 
-      {/* Fashion show */}
-      <FashionEvent />
-    </>
+        {/* Fashion show */}
+        <FashionEvent />
+      </section>
+    </section>
   );
 }
 

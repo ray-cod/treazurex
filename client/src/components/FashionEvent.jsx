@@ -2,7 +2,7 @@ import React from 'react'
 
 const FashionEvent = () => {
   return (
-    <section className="container mx-auto h-full py-16 max-sm:py-8 px-4">
+    <section className="container mx-auto h-full pt-16 max-sm:py-8">
       <h2 className="text-3xl md:text-4xl font-medium mb-12 text-center">
         Latest Watches
       </h2>

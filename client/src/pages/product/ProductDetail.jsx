@@ -11,7 +11,7 @@ const ProductDetail = () => {
   const productId = useParams().id;
   const [isLoading, setIsLoading] = useState(true);
   const sizes = ['XS', 'S', 'M', 'L', 'XL'];
-  const [activeTab, setActiveTab] = useState("reviews");
+  const [activeTab, setActiveTab] = useState("description");
 
   useEffect(() => {
     // Fetch product details by ID when the component mounts
@@ -32,10 +32,17 @@ const ProductDetail = () => {
   return (
     <>
       {!isLoading ? (
-        <section className="container mx-auto px-4">
+        <section className="container mx-auto px-4 py-13 md:py-20 lg:py-24">
+          <h2 className="text-6xl max-md:text-[54px] max-sm:text-[48px] mb-4">
+            Product Details
+          </h2>
+          <p className="mb-6 text-gray-600 dark:text-gray-400">
+            View more about our carefully curated product.
+          </p>
+
           <div className="max-md:flex-col flex py-10">
             {/* Images section */}
-            <section className="max-md:w-full w-[50%] px-4">
+            <section className="max-md:w-full w-[50%]">
               <img
                 src={
                   product.image_url ||
@@ -47,7 +54,7 @@ const ProductDetail = () => {
             </section>
 
             {/* Product Details */}
-            <section className="max-md:container px-4 md:mx-6 md:w-[50%]">
+            <section className="max-md:container md:mx-6 md:w-[50%]">
               <p className="text-gray-600 dark:text-gray-400 mb-2 text-xl max-sm:text-lg">
                 By Treazurex
               </p>
@@ -90,10 +97,10 @@ const ProductDetail = () => {
 
           {/* Tabs for Reviews and F&Q */}
           <ul className="flex items-center gap-4 max-sm:gap-0 bg-gray-200 dark:bg-gray-900 p-2 rounded-lg overflow-hidden text-sm">
-            <li>
+            <li className="w-full">
               <button
                 onClick={() => setActiveTab("description")}
-                className={`cursor-pointer py-2 w-50 rounded-lg max-md:w-40 max-sm:w-26 ${
+                className={`cursor-pointer py-2 w-full rounded-lg ${
                   activeTab === "description"
                     ? "text-black dark:text-white bg-gray-100 dark:bg-gray-950"
                     : "text-gray-600 dark:text-gray-400"
@@ -102,10 +109,10 @@ const ProductDetail = () => {
                 Description
               </button>
             </li>
-            <li>
+            <li className="w-full">
               <button
                 onClick={() => setActiveTab("reviews")}
-                className={`cursor-pointer py-2 w-50 rounded-lg max-md:w-40 max-sm:w-26 ${
+                className={`cursor-pointer py-2 w-full rounded-lg ${
                   activeTab === "reviews"
                     ? "text-black dark:text-white bg-gray-100 dark:bg-gray-950"
                     : "text-gray-600 dark:text-gray-400"
@@ -114,10 +121,10 @@ const ProductDetail = () => {
                 Reviews
               </button>
             </li>
-            <li>
+            <li className="w-full">
               <button
                 onClick={() => setActiveTab("f&q")}
-                className={`cursor-pointer py-2 w-50 rounded-lg max-md:w-40 max-sm:w-26 ${
+                className={`cursor-pointer py-2 w-full rounded-lg ${
                   activeTab === "f&q"
                     ? "text-black dark:text-white bg-gray-100 dark:bg-gray-950"
                     : "text-gray-600 dark:text-gray-400"

@@ -51,7 +51,7 @@ const Home = () => {
       {/* Section One: Latest Items */}
       <section
         id="latest-items"
-        className="container mx-auto px-4 py-8 md:py-12 lg:py-16"
+        className="container mx-auto px-4 py-13 md:py-20 lg:py-24"
       >
         <div className="flex items-end justify-between flex-wrap">
           <div>
@@ -77,7 +77,7 @@ const Home = () => {
       </section>
 
       {/* Section Two: Advert */}
-      <section className="bg-gray-200 dark:bg-gray-900 py-8 md:py-12 lg:py-16 relative">
+      <section className="bg-gray-200 dark:bg-gray-900 py-13 md:py-20 lg:py-24 relative">
         <article className="container mx-auto px-4 flex max-md:flex-wrap-reverse items-center gap-10">
           <div>
             <h2 className="text-4xl max-sm:text-[29px] max-md:text-[33px] mb-5 font-medium">
@@ -138,7 +138,7 @@ const Home = () => {
       {/* Section Three: Collections */}
       <section
         id="collections"
-        className="container mx-auto px-4 py-8 md:py-12 lg:py-16"
+        className="container mx-auto px-4 py-13 md:py-20 lg:py-24"
       >
         <h2 className="text-6xl max-sm:text-4xl max-md:text-5xl font-medium mb-12">
           <span className="text-blue-500">Explore</span> <br /> Our Collections
@@ -158,7 +158,7 @@ const Home = () => {
       <ScrollStack />
 
       {/* Section Five: Testimonials */}
-      <section className="py-8 md:py-12 lg:py-16 px-6 md:px-20">
+      <section className="py-13 md:py-20 lg:py-24 px-6 md:px-20">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-medium mb-12">
             What Our Customers Say
