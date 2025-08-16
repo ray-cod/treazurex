@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 import useUserAccountStore from "../../hooks/useUserAccountStore";
-import { Mail, MapPin, Menu, SquarePen } from "lucide-react";
+import { Mail, MapPin, Menu, SquarePen, X } from "lucide-react"; // Added X icon
 import RelatedProduct from "../../components/RelatedProduct";
 import ProfileOptionsDisplay from "../../components/ProfileOptionsDisplay";
 import UserProfileMenu from "../../components/UserProfileMenu";
+import UserProfileMobileMenu from "../../components/UserProfileMobileMenu";
 
 const Profile = () => {
   const userData = useUserAccountStore();
   const [isEmailVisible, setIsEmailVisible] = useState(false);
-  const [menuOption, setMenuOption] = useState(localStorage.getItem("menuOption") || "profile");
+  const [menuOption, setMenuOption] = useState(
+    localStorage.getItem("menuOption") || "profile"
+  );
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("menuOption", menuOption);
-  }, [menuOption])
+  }, [menuOption]);
 
   return (
     <section className="min-h-screen md:container mx-auto px-4 py-10">
@@ -81,7 +85,7 @@ const Profile = () => {
       </div>
 
       <div className="flex py-6 gap-6">
-        {/* Sidebar */}
+        {/* Side menu (desktop only) */}
         <UserProfileMenu
           menuOption={menuOption}
           setMenuOption={setMenuOption}
@@ -89,8 +93,11 @@ const Profile = () => {
 
         {/* Main Content */}
         <section className="flex-1 space-y-6">
-          {/* Mobile menu */}
-          <div className="flex justify-between p-2 border border-gray-500 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-900 cursor-pointer md:hidden">
+          {/* Mobile menu button */}
+          <div
+            className="flex justify-between p-2 border border-gray-500 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-900 cursor-pointer md:hidden"
+            onClick={() => setIsMobileMenuOpen(true)}
+          >
             <h3>Menu</h3>
             <Menu />
           </div>
@@ -119,6 +126,34 @@ const Profile = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Side Menu Drawer */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-50 flex">
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-[#000000d0] bg-opacity-50 md:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+          ></div>
+
+          {/* Drawer */}
+          <div className="relative w-64 bg-white dark:bg-gray-900 p-6 shadow-lg h-full animate-slideInLeft md:hidden">
+            <button
+              className="absolute top-4 right-4 text-gray-600 dark:text-gray-300 cursor-pointer"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <UserProfileMobileMenu
+              menuOption={menuOption}
+              setMenuOption={(option) => {
+                setMenuOption(option);
+                setIsMobileMenuOpen(false); // close after selecting
+              }}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
