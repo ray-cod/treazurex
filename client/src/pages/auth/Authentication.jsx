@@ -1,6 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
 import AuthHeader from "../../components/headers/AuthHeader";
 import useAuthStore from "../../hooks/useAuthStore";
+import { FaGoogle } from "react-icons/fa";
+import { IoLogoFacebook } from "react-icons/io5";
 
 const Authentication = () => {
   const { handleGoogleLogin, handleFacebookLogin } = useAuthStore();
@@ -37,14 +39,16 @@ const Authentication = () => {
         <div className="auth-socials flex flex-wrap justify-center items-center w-[100%] px-4">
           <button
             onClick={handleGoogleLogin}
-            className="bg-[#292E38] py-2 px-4 rounded-lg mx-3 mt-4 hover:cursor-pointer active:bg-gray-800 max-sm:w-3/4 text-sm"
+            className="bg-[#292E38] py-2 px-4 rounded-lg mx-3 mt-4 hover:cursor-pointer active:bg-gray-900 hover:bg-gray-800 max-sm:w-3/4 text-sm flex items-center gap-2"
           >
+            <FaGoogle className="text-base" />
             Continue with Google
           </button>
           <button
             onClick={handleFacebookLogin}
-            className="bg-[#292E38] py-2 px-4 rounded-lg mx-3 mt-4 hover:cursor-pointer active:bg-gray-800 max-sm:w-3/4 text-sm"
+            className="bg-[#292E38] py-2 px-4 rounded-lg mx-3 mt-4 hover:cursor-pointer active:bg-gray-900 hover:bg-gray-800 max-sm:w-3/4 text-sm flex items-center gap-2"
           >
+            <IoLogoFacebook className="text-lg" />
             Continue with Facebook
           </button>
         </div>
