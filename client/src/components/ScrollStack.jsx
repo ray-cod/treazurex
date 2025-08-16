@@ -1,6 +1,6 @@
 const ScrollStack = () => {
   return (
-    <section className="py-10 pb-20 relative bg-gray-200 dark:bg-gray-900">
+    <section className="py-8 md:py-12 lg:py-16 relative bg-gray-200 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-medium mb-12 sticky top-[40px] text-center">
           Latest Accessories
@@ -63,7 +63,7 @@ const ScrollStack = () => {
           </article>
         </div>
       </div>
-      <div className="absolute bottom-0 right-0 h-20 bg-gradient-to-t from-gray-100 dark:from-[#030712] to-transparent w-[100%]"></div>
+      <div className="absolute bottom-0 right-0 h-20 bg-gradient-to-t from-gray-100 dark:from-[#030712] via-transparent to-transparent w-[100%]"></div>
     </section>
   );
 }

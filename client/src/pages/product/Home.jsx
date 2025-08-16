@@ -47,11 +47,15 @@ const Home = () => {
   return (
     <>
       <Hero />
-      {/* Section One */}
-      <section id="latest-items" className="container mx-auto px-4 py-10">
+
+      {/* Section One: Latest Items */}
+      <section
+        id="latest-items"
+        className="container mx-auto px-4 py-8 md:py-12 lg:py-16"
+      >
         <div className="flex items-end justify-between flex-wrap">
           <div>
-            <h2 className="text-6xl max-sm:text-4xl max-md:text-5xl font-medium pt-8 pb-7">
+            <h2 className="text-6xl max-sm:text-4xl max-md:text-5xl font-medium mb-7">
               Beyond The Edges <br /> of{" "}
               <span className="text-blue-500">Your Needs</span>
             </h2>
@@ -72,11 +76,11 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section Two */}
-      <section className="bg-gray-200 dark:bg-gray-900 py-10 pb-20 relative">
+      {/* Section Two: Advert */}
+      <section className="bg-gray-200 dark:bg-gray-900 py-8 md:py-12 lg:py-16 relative">
         <article className="container mx-auto px-4 flex max-md:flex-wrap-reverse items-center gap-10">
           <div>
-            <h2 className="text-4xl max-sm:text-[29px] max-md:text-[33px] pb-5 font-medium">
+            <h2 className="text-4xl max-sm:text-[29px] max-md:text-[33px] mb-5 font-medium">
               Your journey to the perfect product starts here.
             </h2>
             <p className="text-gray-600 dark:text-gray-300">
@@ -128,12 +132,15 @@ const Home = () => {
             />
           </div>
         </article>
-        <div className="absolute bottom-0 right-0 h-20 bg-gradient-to-t from-gray-100 dark:from-[#030712] to-transparent w-[100%]"></div>
+        <div className="absolute bottom-0 right-0 h-20 bg-gradient-to-t from-gray-100 dark:from-[#030712] via-transparent to-transparent w-[100%]"></div>
       </section>
 
-      {/* Section Three */}
-      <section id="collections" className="container mx-auto px-4 py-10">
-        <h2 className="text-6xl max-sm:text-4xl max-md:text-5xl font-medium pb-12">
+      {/* Section Three: Collections */}
+      <section
+        id="collections"
+        className="container mx-auto px-4 py-8 md:py-12 lg:py-16"
+      >
+        <h2 className="text-6xl max-sm:text-4xl max-md:text-5xl font-medium mb-12">
           <span className="text-blue-500">Explore</span> <br /> Our Collections
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 container mx-auto">
@@ -151,7 +158,7 @@ const Home = () => {
       <ScrollStack />
 
       {/* Section Five: Testimonials */}
-      <section className="py-16 px-6 md:px-20">
+      <section className="py-8 md:py-12 lg:py-16 px-6 md:px-20">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-medium mb-12">
             What Our Customers Say
