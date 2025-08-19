@@ -23,13 +23,11 @@ function App() {
 
   useEffect(() => {
     let isMounted = true;
-    const controller = new AbortController();
 
     const fetchAccessToken = async () => {
       try {
         const response = await api.get("/api/refresh-token", {
           withCredentials: true,
-          signal: controller.signal,
         });
 
         if (isMounted) {
@@ -49,7 +47,6 @@ function App() {
 
     return () => {
       isMounted = false;
-      controller.abort();
     };
   }, []);
 
