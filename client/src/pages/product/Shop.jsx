@@ -8,6 +8,7 @@ import FashionEvent from "../../components/FashionEvent";
 const Shop = () => {
   const apiStore = useApiStore();
   const [products, setProducts] = useState([]);
+  const [defaultProducts, setDefaultProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
   const lastPostIndex = currentPage * itemsPerPage;
@@ -19,7 +20,10 @@ const Shop = () => {
     const fetchProducts = async () => {
       try {
         const products = await apiStore.getAllProducts();
-        if (isMounted) setProducts(products);
+        if (isMounted) {
+          setProducts(products);
+          setDefaultProducts(products);
+        }
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -29,6 +33,20 @@ const Shop = () => {
       isMounted = false;
     };
   }, []);
+
+  const sortProducts = (sortType) => {
+    switch (sortType) {
+      case 'priceLowToHigh':
+        setProducts([...products].sort((a, b) => a.price - b.price));
+        break;
+      case 'priceHighToLow':
+        setProducts([...products].sort((a, b) => b.price - a.price));
+        break;
+      default:
+        setProducts(defaultProducts);
+        break;
+    }
+  };
   
   return (
     <section>
@@ -66,8 +84,8 @@ const Shop = () => {
               <label htmlFor="sort">Sort By:</label>
               <select
                 id="sort"
-                className="border border-gray-300 rounded-lg p-2"
-                onChange={(e) => apiStore.sortProducts(e.target.value)}
+                className="border border-gray-300 rounded-lg p-2 cursor-pointer"
+                onChange={(e) => sortProducts(e.target.value)}
               >
                 <option value="default">Default</option>
                 <option value="priceLowToHigh">Price: Low to High</option>
