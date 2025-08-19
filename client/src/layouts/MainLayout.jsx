@@ -16,6 +16,7 @@ const MainLayout = () => {
   useEffect(() => {
     if (!accessToken) return;
 
+    // Verify user and load user data
     const verifyUser = async () => {
       try {
         const result = await userData.fetchProtectedData(accessToken);
