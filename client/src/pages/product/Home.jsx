@@ -9,6 +9,7 @@ import ScrollStack from "../../components/ScrollStack";
 const Home = () => {
   const apiStore = useApiStore();
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const collections = [
     {
       id: 1,
@@ -31,18 +32,36 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    // Fetch all products when the component mounts
+    let isMounted = true; // track mount state
+    const controller = new AbortController(); // cancel request if unmounted
+
     const fetchProducts = async () => {
       try {
-        const products = await apiStore.getAllProducts();
-        setProducts(products);
-        console.log("Fetched products:", products);
+        setIsLoading(true); 
+        const products = await apiStore.getAllProducts({
+          signal: controller.signal,
+        });
+        if (isMounted) {
+          setProducts(products);
+          console.log("Fetched products:", products);
+        }
       } catch (error) {
-        console.error("Error fetching products:", error);
+        if (isMounted) {
+          console.error("Error fetching products:", error);
+        }
+      } finally {
+        if (isMounted) setIsLoading(false);
       }
     };
+
     fetchProducts();
+
+    return () => {
+      isMounted = false;
+      controller.abort(); // cleanup
+    };
   }, []);
+
 
   return (
     <>

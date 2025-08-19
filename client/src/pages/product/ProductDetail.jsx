@@ -14,20 +14,38 @@ const ProductDetail = () => {
   const [activeTab, setActiveTab] = useState("description");
 
   useEffect(() => {
-    // Fetch product details by ID when the component mounts
-    const fetchProductDetails = async (productId) => {
+    if (!productId) return; // skip if undefined
+
+    let isMounted = true;
+    const controller = new AbortController();
+
+    const fetchProductDetails = async () => {
       try {
-        const product = await apiStore.getProductById(productId);
-        console.log("Fetched product details:", product);
-        setProduct(product);
-        setIsLoading(false);
+        setIsLoading(true);
+        const product = await apiStore.getProductById(productId, {
+          signal: controller.signal,
+        });
+        if (isMounted) {
+          console.log("Fetched product details:", product);
+          setProduct(product);
+        }
       } catch (error) {
-        console.error("Error fetching product details:", error);
+        if (isMounted) {
+          console.error("Error fetching product details:", error);
+        }
+      } finally {
+        if (isMounted) setIsLoading(false);
       }
     };
 
-    fetchProductDetails(productId);
-  }, []);
+    fetchProductDetails();
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
+  }, [productId]);
+
 
   return (
     <>

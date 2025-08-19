@@ -14,10 +14,21 @@ const MainLayout = () => {
   const userData = useUserAccountStore();
 
   useEffect(() => {
-    if (accessToken) {
-      setIsUserLoggedIn(userData.fetchProtectedData(accessToken));
-    }
+    if (!accessToken) return;
+
+    const verifyUser = async () => {
+      try {
+        const result = await userData.fetchProtectedData(accessToken);
+        setIsUserLoggedIn(!!result);
+      } catch (error) {
+        console.error("Error verifying user:", error);
+        setIsUserLoggedIn(false);
+      }
+    };
+
+    verifyUser();
   }, [accessToken]);
+
 
   return (
     <>

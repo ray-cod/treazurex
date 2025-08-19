@@ -22,19 +22,37 @@ function App() {
   const { setAccessToken } = useAuthStore();
 
   useEffect(() => {
+    let isMounted = true;
+    const controller = new AbortController();
+
     const fetchAccessToken = async () => {
       try {
         const response = await api.get("/api/refresh-token", {
           withCredentials: true,
+          signal: controller.signal,
         });
-        setAccessToken(response.data.accessToken);
+
+        if (isMounted) {
+          setAccessToken(response.data.accessToken);
+        }
       } catch (err) {
-        console.log("Unable to refresh access token:", err.message);
+        if (err.name !== "CanceledError") {
+          console.error("Unable to refresh access token:", err.message);
+          if (isMounted) {
+            setAccessToken(null);
+          }
+        }
       }
     };
 
     fetchAccessToken();
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
   }, []);
+
 
   return (
     <Routes>

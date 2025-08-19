@@ -15,18 +15,20 @@ const Shop = () => {
   const currentPosts = products.slice(firstPostIndex, lastPostIndex);
 
   useEffect(() => {
-      // Fetch all products when the component mounts
-      const fetchProducts = async () => {
-        try {
-          const products = await apiStore.getAllProducts();
-          setProducts(products);
-          console.log("Fetched products:", products);
-        } catch (error) {
-          console.error("Error fetching products:", error);
-        }
-      };
-      fetchProducts();
-    }, []);
+    let isMounted = true;
+    const fetchProducts = async () => {
+      try {
+        const products = await apiStore.getAllProducts();
+        if (isMounted) setProducts(products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+    fetchProducts();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
   
   return (
     <section>
