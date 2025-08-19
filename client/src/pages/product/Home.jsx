@@ -3,10 +3,11 @@ import ProductCard from "../../components/ProductCard";
 import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
 import CollectionCard from "../../components/CollectionCard";
 import useApiStore from "../../hooks/useApiStore";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ScrollStack from "../../components/ScrollStack";
 
 const Home = () => {
+  const sliderRef = useRef(null);
   const apiStore = useApiStore();
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +35,7 @@ const Home = () => {
   useEffect(() => {
     let isMounted = true; // track mount state
     const controller = new AbortController(); // cancel request if unmounted
-
+    
     const fetchProducts = async () => {
       try {
         setIsLoading(true); 
@@ -53,7 +54,7 @@ const Home = () => {
         if (isMounted) setIsLoading(false);
       }
     };
-
+    
     fetchProducts();
 
     return () => {
@@ -61,7 +62,20 @@ const Home = () => {
       controller.abort(); // cleanup
     };
   }, []);
+  
 
+  // Scroll functions
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -81,13 +95,19 @@ const Home = () => {
             <p className="pb-3">Find our latest items curated only for you.</p>
           </div>
           <div className="flex items-center gap-4 pb-3">
-            <CircleArrowLeft className="w-12 h-12 cursor-pointer dark:hover:bg-gray-800 rounded-full" />
-            <CircleArrowRight className="w-12 h-12 cursor-pointer dark:hover:bg-gray-800 rounded-full" />
+            <CircleArrowLeft
+              onClick={scrollLeft}
+              className="w-12 h-12 cursor-pointer dark:hover:bg-gray-800 rounded-full"
+            />
+            <CircleArrowRight
+              onClick={scrollRight}
+              className="w-12 h-12 cursor-pointer dark:hover:bg-gray-800 rounded-full"
+            />
           </div>
         </div>
 
         <div className="product-slider">
-          <div className="slider-container">
+          <div ref={sliderRef} className="slider-container">
             {products.slice(0, 10).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

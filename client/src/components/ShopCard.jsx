@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { useState } from "react";
+import { Heart } from "lucide-react";
 
 const ShopCard = ({ product }) => {
   const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
@@ -18,16 +19,24 @@ const ShopCard = ({ product }) => {
             "https://res.cloudinary.com/dicqdr7wa/image/upload/v1752490704/view-skateboard-with-retro-memorabilia_ktqzak.jpg"
           }
           alt={product.name || "Product Image"}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105"
         />
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-500"></div>
+
+        {/* Add to wishlist button */}
+        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 bg-white/80 dark:bg-gray-800/80 hover:bg-red-500 hover:scale-110 rounded-full p-2 flex items-center justify-center shadow-lg cursor-pointer">
+          <Heart
+            className="text-gray-800 dark:text-white hover:text-white"
+            size={20}
+          />
+        </div>
       </div>
 
       {/* Content */}
       <article className="p-4">
-        <h3 className="text-xl max-sm:text-base font-medium text-gray-900 dark:text-white group-hover:text-amber-600 transition-colors">
+        <h3 className="text-xl max-sm:text-base font-medium text-gray-900 dark:text-white group-hover:text-amber-600 group-active:text-amber-600 transition-colors">
           {product.name || "Product Name"}
         </h3>
 
