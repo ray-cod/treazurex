@@ -4,6 +4,8 @@ import ShopCard from '../../components/ShopCard';
 import { Link } from 'react-router-dom';
 import Pagination from '../../components/Pagination';
 import FashionEvent from "../../components/FashionEvent";
+import ProductCardSkeleton from '../../components/ProductCardSkeleton';
+import ShopCardSkeleton from '../../components/ShopCardSkeleton';
 
 const Shop = () => {
   const apiStore = useApiStore();
@@ -14,11 +16,14 @@ const Shop = () => {
   const lastPostIndex = currentPage * itemsPerPage;
   const firstPostIndex = lastPostIndex - itemsPerPage;
   const currentPosts = products.slice(firstPostIndex, lastPostIndex);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
+
     const fetchProducts = async () => {
       try {
+        setIsLoading(true)
         const products = await apiStore.getAllProducts();
         if (isMounted) {
           setProducts(products);
@@ -26,8 +31,11 @@ const Shop = () => {
         }
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        if (isMounted) setIsLoading(false)
       }
     };
+
     fetchProducts();
     return () => {
       isMounted = false;
@@ -95,9 +103,13 @@ const Shop = () => {
           </section>
 
           <div className="grid grid-cols-4 max-xl:grid-cols-3 gap-6 max-md:gap-4 max-lg:grid-cols-2">
-            {currentPosts.map((product) => (
-              <ShopCard key={product.id} product={product} />
-            ))}
+            {isLoading
+              ? Array.from({ length: 8 }).map((_, idx) => (
+                  <ShopCardSkeleton key={idx} />
+                ))
+              : currentPosts.map((product) => (
+                  <ShopCard key={product.id} product={product} />
+                ))}
           </div>
         </div>
 

@@ -5,6 +5,7 @@ import CollectionCard from "../../components/CollectionCard";
 import useApiStore from "../../hooks/useApiStore";
 import { useEffect, useRef, useState } from "react";
 import ScrollStack from "../../components/ScrollStack";
+import ProductCardSkeleton from "../../components/ProductCardSkeleton";
 
 const Home = () => {
   const sliderRef = useRef(null);
@@ -105,12 +106,17 @@ const Home = () => {
             />
           </div>
         </div>
-
         <div className="product-slider">
           <div ref={sliderRef} className="slider-container">
-            {products.slice(0, 10).map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            {isLoading
+              ? Array.from({ length: 6 }).map((_, idx) => (
+                  <ProductCardSkeleton key={idx} />
+                ))
+              : products
+                  .slice(0, 10)
+                  .map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
           </div>
         </div>
       </section>
